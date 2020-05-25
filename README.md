@@ -1,12 +1,12 @@
 # Horzon.        
 ### Artisan Landscape Art and Photography
 
-# Contents
-# User Experience
-# Design
-# Wireframes & Flowcharts
-# Features
-# Technologies Used
+# Contents:
+#### User Experience
+#### Design
+#### Wireframes & Flowcharts
+#### Features
+#### Technologies Used
 
 
 # User Experience
@@ -99,6 +99,16 @@ User ID | _id | ObjectId
 Name | name | String
 Password | password | String
 Email | email | String
+
+Purchases Collection:
+
+Name | Database Name | Type
+---- | ------------- | ----
+Purchase ID | _id | ObjectId
+Name | name | String
+Email | email | String
+Date | date | String
+Total | total | number
 
 
 
