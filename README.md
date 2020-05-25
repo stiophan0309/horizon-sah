@@ -32,6 +32,17 @@ request a specific work within the remit of the artist.
 
 ### User Stories
 
+As a user I want to be able to navigate the site easily and be able to view the artist's work and be enticed to purchase or commission a work.  I want to be able to easily contact the 
+artist and be able to get information about the service provided.
+
+As a user I want to be able to find out information about the artist and their influences and what inspires them and their work.
+
+As a user I want to be able to use the site whether on a mobile, tablet or desktop.
+
+As the artist and site owner I want to encourage users to browse my work and be inspired to purchase or commission a work.
+
+As the artist and site owner I want users to be able to easily contact me and obtain information about me and my work and feel they can ask me anything.
+
 # Design
 
 ### Design philosophy
