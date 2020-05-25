@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from art.views import say_hello
+from art.views import get_art
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('art/', say_hello)
+    path('art/', get_art)
 ]

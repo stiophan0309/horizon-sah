@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
 
 # Create your views here.
-def say_hello(request):
-    return HttpResponse("Hello World")
+def get_art(request):
+    return render(request, "art.html")
