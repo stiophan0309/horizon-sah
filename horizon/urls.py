@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from art.views import get_art
-from accounts.views import index, logout
+from accounts.views import index, logout, login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('art/', get_art),
     path('accounts/', index, name="index"),
-    path('accounts/logout/', logout, name="logout")
+    path('accounts/logout/', logout, name="logout"),
+    path('accounts/login/', login, name="login"),
 ]
