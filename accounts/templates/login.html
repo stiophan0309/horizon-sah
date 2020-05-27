@@ -22,5 +22,10 @@
         {% for message in messages %} {{ message }} {% endfor %}
     </div>
     {% endif %}
+
+    <form method="POST">
+        {% csrf_token %} {{ login_form }}
+        <button type="submit">Login</button>
+    </form>
 </body>
 </html>
