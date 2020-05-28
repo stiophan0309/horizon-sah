@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from art.views import get_art
-from accounts.views import index, logout, login, registration
+from accounts.views import index, logout, login, registration, user_profile
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +25,5 @@ urlpatterns = [
     path('accounts/logout/', logout, name="logout"),
     path('accounts/login/', login, name="login"),
     path('accounts/registration/', registration, name="registration"),
+    path('accounts/user_profile/', user_profile, name="user_profile")
 ]
