@@ -10,12 +10,14 @@ def index(request):
     """Return the index.html file"""
     return render(request,  'index.html')
 
+@login_required
 def logout(request):
     """Log the user out"""
     auth.logout(request)
     messages.success(request, "You have successfully been logged out")
     return redirect(reverse('index'))
 
+@login_required
 def login(request):
     """Return a login page"""
     if request.user.is_authenticated:
@@ -59,7 +61,7 @@ def registration(request):
         registration_form = UserRegistrationForm()
     return render(request, 'registration.html', {
         "registration_form": registration_form})
-    
+
 def user_profile(request):
     """The user's profile page"""
     user = User.objects.get(email=request.user.email)
