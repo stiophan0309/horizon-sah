@@ -17,7 +17,6 @@ def logout(request):
     messages.success(request, "You have successfully been logged out")
     return redirect(reverse('index'))
 
-@login_required
 def login(request):
     """Return a login page"""
     if request.user.is_authenticated:

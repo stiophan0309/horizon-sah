@@ -10,6 +10,7 @@ class UserLoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
 
+
 class UserRegistrationForm(UserCreationForm):
     """Form used to register a new user"""
 
@@ -20,18 +21,18 @@ class UserRegistrationForm(UserCreationForm):
         label="Password Confirmation",
         widget=forms.PasswordInput)
     
-    class Meta:
+class Meta:
         model = User
         fields = ['email', 'username', 'password1', 'password2']
     
-    def clean_email(self):
+def clean_email(self):
         email = self.cleaned_data.get('email')
         username = self.cleaned_data.get('username')
         if User.objects.filter(email=email).exclude(username=username):
             raise forms.ValidationError(u'Email address must be unique')
         return email
 
-    def clean_password2(self):
+def clean_password2(self):
         password1 = self.cleaned_data.get('password1')
         password2 = self.cleaned_data.get('password2')
 
