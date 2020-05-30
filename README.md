@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/stiophan0309/horizon-sah.svg?branch=master)](https://travis-ci.org/stiophan0309/horizon-sah)
 # Horzon.        
 ### Artisan Landscape Art and Photography
 
