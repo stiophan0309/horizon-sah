@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'django_forms_bootstrap',
     'horizon',
     'home',
-    'art',
     'accounts',
 ]
 
