@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from home.views import index
-from accounts import urls as accounts_urls
+from accounts import urls as urls_accounts
 from works import urls as urls_works
 from works.views import all_works
 from django.views import static
@@ -25,7 +25,8 @@ from .settings import MEDIA_ROOT
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
-    url(r'^accounts/', include(accounts_urls)),
-    url(r'^works/', include(urls_works)),
+    url(r'^$', all_works, name='works'),
+    url(r'^works/', include(urls_works, namespace='works', app_name='works')),
+    url(r'^accounts/', include(urls_accounts)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})
 ]

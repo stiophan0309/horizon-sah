@@ -5,3 +5,4 @@ from .models import Work
 def all_works(request):
     works = Work.objects.all()
     return render(request, "works.html", {"works": works})
+
