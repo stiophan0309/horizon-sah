@@ -5,10 +5,9 @@
     {% for work in works %}
         <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
             <div class="panel-body">
-                <div class="work" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
-                <h1>Hello</h1>
+                <div class="work" style="background-image: url('{{ MEDIA_URL }}{{ work.image }}')"></div>
                 <h3>{{ work.name }}</h3>
-                <p class="work-description">{{ product.description }}</p>
+                <p class="work-description">{{ work.description }}</p>
                 <p>{{ work.price }}</p>
                 <form method="post" action="{% url 'add_to_cart' work.id %}">
                     {% csrf_token %}
