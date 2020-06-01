@@ -32,8 +32,8 @@
             <li>
                 <a href="{% url 'view_cart' %}">
                     <i class="fa fa-shipping-cart"></i>Cart
-                    {% if product_count > 0 %}
-                    <label class="badge badge-warning">{{ product_count }}</label>
+                    {% if work_count > 0 %}
+                    <label class="badge badge-warning">{{ work_count }}</label>
                     {% endif %}
                 </a>
             </li>
@@ -41,7 +41,6 @@
     </div>
 </nav>
 
-    <hr> 
         {% if messages %}
     <div>
         {% for message in messages %} {{ message }} {% endfor %}
