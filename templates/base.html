@@ -21,7 +21,7 @@
     <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             {% if user.is_authenticated %}
             <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
@@ -29,15 +29,19 @@
             <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'registration' %}">Register</a></li>
             {% endif %}
-            <li>
-                <a href="{% url 'view_cart' %}">
-                    <i class="fa fa-shipping-cart"></i>Cart
-                    {% if work_count > 0 %}
-                    <label class="badge badge-warning">{{ work_count }}</label>
-                    {% endif %}
-                </a>
-            </li>
         </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <a href="{% url 'view_cart' %}">
+                <i class="fa fa-shipping-cart"></i>Cart
+                {% if work_count > 0 %}
+                <label class="badge badge-warning">{{ work_count }}</label>
+                {% endif %}
+            </a>
+        </form>
+        <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="get">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </div>
 </nav>
 
@@ -46,14 +50,7 @@
         {% for message in messages %} {{ message }} {% endfor %}
     </div>
     {% endif %}
-<div class="container">
-        <div class="display">
-            <form action="{% url 'search' %}" method="get">
-                <input type="text" name="q">
-                <button type="search">Search</button>
-            </form>
-</div>
-    
+
 {% block content %}
 {% endblock %}
 
