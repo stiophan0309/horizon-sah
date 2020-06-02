@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="row">
-    {% for item in cart_items %}
+    
     
     <div class="card shopping-cart">
 
@@ -13,7 +13,7 @@
             <a href="{% url 'works' %}" class="btn btn-outline-info btn-sm pull-right">Continue shopping</a>
             <div class="clearfix"></div>
         </div>
-        
+        {% for item in cart_items %}
         <div class="card-body">
             <div class="work"><img src="{{ MEDIA_URL}}{{item.work.image}}"></div>
             <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
@@ -48,7 +48,8 @@
             </div>
 
         </div>
-
+        <hr>
+        {% endfor %}
         <div class="card-footer">
                 <div class="pull-right" style="margin: 5px">
                     Total price: <b>{{ total }}</b>
@@ -59,7 +60,7 @@
         </div>
     </div>
 
-    {% endfor %}
+    
 </div>
 
 {% endblock %}
