@@ -3,14 +3,32 @@
 {% load bootstrap_tags %}
 
 {% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Gallery & Shop</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita odio veritatis, ad sequi ex nam ab impedit libero at, inventore iusto rem quasi recusandae autem corporis id aliquid! Ad, rerum!</p>
+    </div>
+</div>
+
+<hr>
+
 <div class="row row-flex">
     {% for work in works %}
         <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
             <div class="panel-body">
                 <div class="work"><img src="{{ MEDIA_URL}}{{work.image}}"></div>
-                <h3>{{ work.name }}</h3>
+                <h3>{{ work.title }}</h3>
+                <hr>
+                <p>Reference: {{ work.name }}</p>
+                <p>Media: {{ work.media }}</p>
+                <p>Date: {{ work.date }}</p>
                 <p class="work-description">{{ work.description }}</p>
-                <p>{{ work.price }}</p>
+                <hr>
+                <p>Price: £{{ work.price }}</p>
                 <form method="post" action="{% url 'add_to_cart' work.id %}">
                     {% csrf_token %}
                     <div class="input-group">
@@ -24,5 +42,9 @@
         </div>
     {% endfor %}
 </div>
+<hr>
+
+
+
+
 {% endblock %}
-<h1>Test</h1>
