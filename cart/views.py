@@ -27,6 +27,7 @@ def remove_from_cart(request, id):
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
+        #Add popup to give users option where to go after emptying cart
 
 def adjust_cart(request, id):
     """
