@@ -8,6 +8,7 @@ from django.utils import timezone
 from works.models import Work
 import stripe
 
+
 # Create your views here.
 stripe.api_key = settings.STRIPE_SECRET
 
@@ -26,11 +27,11 @@ def checkout(request):
             cart = request.session.get('cart', {})
             total = 0
             for id, quantity in cart.items():
-                product = get_object_or_404(Product, pk=id)
-                total += quantity * product.price
+                work = get_object_or_404(Work, pk=id)
+                total += quantity * work.price
                 order_line_item = OrderLineItem(
                     order=order,
-                    product=product,
+                    work=work,
                     quantity=quantity
                 )
                 order_line_item.save()
