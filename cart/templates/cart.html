@@ -6,7 +6,7 @@
 <div class="row">
     
     
-    <div class="card shopping-cart">
+    <div class="card">
 
         <div class="card-header bg-dark text-light">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shipping Cart
@@ -15,20 +15,19 @@
         </div>
         {% for item in cart_items %}
         <div class="card-body">
-            <div class="work"><img src="{{ MEDIA_URL}}{{item.work.image}}"></div>
-            <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <img class="img-responsive" src="{{ MEDIA_URL}}{{item.work.image}}">
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-9">
                 <h3>{{ item.work.title }}</h3>
                 <p class="work-description">{{ item.work.description }}</p>
+                <p><strong>£{{ item.work.price }}</strong></p>
             </div>
-            <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
-                <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-                    <p><strong>{{ item.work.price }}</strong></p>
-                </div>
-            </div>
-            <div class="col-4 col-sm-4 col-md-4">
-                <div class="quantity">
-  
-                    <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
+        </div>
+
+            <div class="col-4 col-sm-4 col-md-4">  
+                    <form method="post" action="{% url 'adjust_cart' item.id %}">
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="exampleInputAmount" class="sr-only">New Qty</label>
@@ -37,14 +36,13 @@
                                 <input name="quantity" type="number" min="0" max="999" class="form-control">
                                 <div class="input-group-addon">{{item.quantity}}</div>
                             </div>
-                        </div><br>
-                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend Cart</button>
+                        </div>
+                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Adjust Quantity</button>
                     </form>
-                    <form class="form-inline" method="post" action="{% url 'remove_from_cart' item.id %}">
+                    <form method="post" action="{% url 'remove_from_cart' item.id %}">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Empty Cart</button>
+                        <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Remove Items</button>
                     </form>
-                </div>
             </div>
 
         </div>
@@ -52,7 +50,7 @@
         {% endfor %}
         <div class="card-footer">
                 <div class="pull-right" style="margin: 5px">
-                    Total price: <b>{{ total }}</b>
+                    Total price: <b>£{{ total }}</b>
                 </div>
                 <div class="pull-right" style="margin: 5px">
                     <a href="" class="btn btn-success">Checkout</a>
