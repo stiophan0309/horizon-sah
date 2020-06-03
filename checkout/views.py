@@ -11,6 +11,7 @@ import stripe
 
 # Create your views here.
 stripe.api_key = settings.STRIPE_SECRET
+STRIPE_PUBLISHABLE = settings.STRIPE_PUBLISHABLE
 
 
 @login_required()
