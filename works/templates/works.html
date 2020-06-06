@@ -21,29 +21,49 @@
         
             <div class="col-lg-3 col-md-4 col-6">
                 <div class="thumbnail">
-                <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-responsive img-thumbnail" src="{{ MEDIA_URL}}{{work.image}}" alt="{{ work.title }}">
-                </a>
+                    <a href="#" class="d-block mb-4 h-100" data-toggle="modal" data-target="#modal{{work.name}}">
+                        <img class="img-responsive img-thumbnail" src="{{ MEDIA_URL}}{{work.image}}" alt="{{ work.title }}">
+                    </a>
                 </div>
                 <div class="caption">
-                <h3>{{ work.title }}</h3>
-                <hr>
-                <p>Reference: {{ work.name }}</p>
-                <p>Media: {{ work.media }}</p>
-                <p>Date: {{ work.date }}</p>
-                <p class="work-description">{{ work.description }}</p>
-                <hr>
-                <p>Price: £{{ work.price }}</p>
-                <form method="post" action="{% url 'add_to_cart' work.id %}">
-                    {% csrf_token %}
-                    <div class="input-group">
-                        <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="submit">Add</button>
-                        </span>
-                    </div>
-                </form>
+                    <h3>{{ work.title }}</h3>
+                    <hr>
+                    <p>Reference: {{ work.name }}</p>
+                    <p>Media: {{ work.media }}</p>
+                    <p>Date: {{ work.date }}</p>
+                    <p class="work-description">{{ work.description }}</p>
+                    <hr>
+                    <p>Price: £{{ work.price }}</p>
+                    <form method="post" action="{% url 'add_to_cart' work.id %}">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                            <span class="input-group-btn">
+                                <button class="btn btn-success" type="submit">Add</button>
+                            </span>
+                        </div>
+                    </form>
                 </div>
+<div class="modal fade" id="#modal{{work.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ work.title }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img class="img-responsive img-thumbnail" src="{{ MEDIA_URL}}{{work.image}}" alt="{{ work.title }}">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
             </div>
         
     {% endfor %}
