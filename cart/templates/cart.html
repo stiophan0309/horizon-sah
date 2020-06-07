@@ -46,15 +46,16 @@
             </div>
 
         </div>
-        <hr>
+
         {% endfor %}
         <div class="card-footer">
-                <div class="pull-right" style="margin: 5px">
-                    Total price: <b>£{{ total }}</b>
-                </div>
-                <div class="pull-right" style="margin: 5px">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-8"></div>
+                <div class="col-sm-12 col-md-6 col-lg-4 text-right">
+                    <p>Total price: <b>£{{ total }}</b></p>
                     <a href="{% url 'checkout' %}" class="btn btn-success">Checkout</a>
                 </div>
+            </div>
         </div>
     </div>
 
