@@ -21,7 +21,7 @@
         
             <div class="col-lg-3 col-md-4 col-6">
                 <div class="thumbnail">
-                    <a href="#" class="d-block mb-4 h-100" data-toggle="modal" data-target="#modal{{work.name}}">
+                    <a href="#modal" class="d-block mb-4 h-100" data-toggle="modal" data-target="#modal-work-{{work.pk}}">
                         <img class="img-responsive img-thumbnail" src="{{ MEDIA_URL}}{{work.image}}" alt="{{ work.title }}">
                     </a>
                 </div>
@@ -44,7 +44,7 @@
                         </div>
                     </form>
                 </div>
-<div class="modal fade" id="#modal{{work.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-work-{{work.pk}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
