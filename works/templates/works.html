@@ -21,19 +21,13 @@
         
             <div class="col-lg-3 col-md-4 col-6">
                 <div class="thumbnail">
-                    <a href="#modal" class="d-block mb-4 h-100" data-toggle="modal" data-target="#modal-work-{{work.pk}}">
+                    <a href="#" class="d-block mb-4 h-100" data-toggle="modal" data-target="#modal-work-{{work.pk}}">
                         <img class="img-responsive img-thumbnail" src="{{ MEDIA_URL}}{{work.image}}" alt="{{ work.title }}">
                     </a>
                 </div>
                 <div class="caption">
                     <h3>{{ work.title }}</h3>
-                    <hr>
-                    <p>Reference: {{ work.name }}</p>
-                    <p>Media: {{ work.media }}</p>
-                    <p>Date: {{ work.date }}</p>
-                    <p class="work-description">{{ work.description }}</p>
-                    <hr>
-                    <p>Price: £{{ work.price }}</p>
+                    <p>Price: £{{ work.price }}</p>                  
                     <form method="post" action="{% url 'add_to_cart' work.id %}">
                         {% csrf_token %}
                         <div class="input-group">
@@ -44,25 +38,34 @@
                         </div>
                     </form>
                 </div>
-<div class="modal fade" id="modal-work-{{work.pk}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{ work.title }}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <img class="img-responsive img-thumbnail" src="{{ MEDIA_URL}}{{work.image}}" alt="{{ work.title }}">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+                <!-- Modal -->
+                <div class="modal fade" id="modal-work-{{work.pk}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{{ work.title }}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <img class="img-responsive" src="{{ MEDIA_URL}}{{work.image}}" alt="{{ work.title }}">
+                                
+                                <h3>{{ work.title }}</h3>
+                                <p>Catalogue Number: {{ work.name }}</p>
+                                <p>Media: {{ work.media }}</p>
+                                <p>Date: {{ work.date }}</p>
+                                <p class="work-description">{{ work.description }}</p>
+                                <p>Price: £{{ work.price }}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Add to Basket</button>
+                            </div>                           
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Modal -->
 
             </div>
         
