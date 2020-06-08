@@ -8,10 +8,7 @@ body {
     background-color: #028090;
     border-bottom: 1px solid #fff;
 }
-#header {
-    margin-top: 150px;
-    width: 100%;
-}
+
 .btn-search {
     background-color: #00a896;
     border-color: #f0f3bd;
@@ -21,13 +18,15 @@ body {
     margin-left: 0px !important;
     width: 600px;
 }
-
+/* Home Page styles */
 #index, #contact, #about {
     min-height: 100vh;
 }
-#contact {
+#header {
     margin-top: 150px;
+    width: 100%;
 }
+
 .bg {
     background: url(../../media/img/bg.jpg) no-repeat;
     background-size: cover;
@@ -40,9 +39,6 @@ body {
 }
 .header {
     padding-top: 70px;
-}
-.img-thumbnail {
-    max-height: 200px;
 }
 .title {
     width: 100%;
@@ -58,13 +54,28 @@ body {
     font-size: 2em;
     font-weight: 200;
 }
+
+/* gallery styles */
+.container {
+    margin: 0px 20px 0px 20px;
+    min-width: 95%;
+}
+.item {
+    border: 1px solid #f0f3bd;
+    margin: 5px;
+    padding: 10px;
+    background: #02c39a;
+}
+.img-thumbnail {
+    max-height: 200px;
+}
+
 /* Cart App Styles */
 .card {
     width: 90%;
     margin: 0 auto;
     margin-top: 20px;
 }
-
 
 
 form {

@@ -5,12 +5,12 @@
 {% block content %}
 
 <section class="header">
-<div class="row">
+<div class="row container">
     <div class="col-sm-12">
         <h3>Gallery & Shop</h3>
     </div>
 </div>
-<div class="row">
+<div class="row container">
     <div class="col-sm-12">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita odio veritatis, ad sequi ex nam ab impedit libero at, inventore iusto rem quasi recusandae autem corporis id aliquid! Ad, rerum!</p>
     </div>
@@ -20,10 +20,10 @@
 
 <section class="body">
 
-<div class="row text-center text-lg-left">
+<div class="row text-center text-lg-left container">
     {% for work in works %}
         
-            <div class="col-lg-3 col-md-4 col-6">
+            <div class="col-lg-3 col-md-4 col-6 item">
                 <div class="thumbnail">
                     <a href="#" class="d-block mb-4 h-100" data-toggle="modal" data-target="#modal-work-{{work.pk}}">
                         <img class="img-responsive img-thumbnail" src="{{ MEDIA_URL}}{{work.image}}" alt="{{ work.title }}">
