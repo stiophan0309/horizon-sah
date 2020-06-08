@@ -1,6 +1,8 @@
-/* Style to overcome fixed navbar */
 body {
-    padding-top: 60px;
+    padding-top: 60px; /* Style to overcome fixed navbar */
+    margin: 0;
+    background-color: #f0f3bd;
+    
 }
 #index, #contact, #about {
     min-height: 100vh;
@@ -14,7 +16,7 @@ body {
 .img-thumbnail {
     max-height: 200px;
 }
-
+/* Cart App Styles */
 .card {
     width: 90%;
     margin: 0 auto;
