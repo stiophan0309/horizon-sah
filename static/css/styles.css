@@ -4,6 +4,18 @@ body {
     background-color: #f0f3bd;
     
 }
+.nav-bg {
+    background-color: #028090;
+}
+.btn-search {
+    background-color: #00a896;
+    border-color: #f0f3bd;
+    color: #f0f3bd;
+}
+.nav-right {
+    margin-left: 0px !important;
+    width: 600px;
+}
 #index, #contact, #about {
     min-height: 100vh;
 }
