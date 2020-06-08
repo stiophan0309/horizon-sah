@@ -3,6 +3,8 @@
 {% load bootstrap_tags %}
 
 {% block content %}
+
+<section class="header">
 <div class="row">
     <div class="col-sm-12">
         <h3>Gallery & Shop</h3>
@@ -14,7 +16,9 @@
     </div>
 </div>
 
-<hr>
+</section>
+
+<section class="body">
 
 <div class="row text-center text-lg-left">
     {% for work in works %}
@@ -71,6 +75,7 @@
         
     {% endfor %}
 </div>
+</section>
 
 
 
