@@ -1,11 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One&family=Montserrat:wght@200&display=swap');
 body {
-    padding-top: 60px; /* Style to overcome fixed navbar */
     margin: 0;
-    background-color: #f0f3bd;
-    
+    background-color: #028090;    
 }
+/* Navbar styles */
 .nav-bg {
     background-color: #028090;
+    border-bottom: 1px solid #fff;
+}
+#header {
+    margin-top: 150px;
+    width: 100%;
 }
 .btn-search {
     background-color: #00a896;
@@ -16,17 +21,42 @@ body {
     margin-left: 0px !important;
     width: 600px;
 }
+
 #index, #contact, #about {
     min-height: 100vh;
 }
-.header {
-    margin-top: 20px;
+#contact {
+    margin-top: 150px;
 }
-.header2 {
-    margin-top: 100px;
+.bg {
+    background: url(bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 90vh;
+    min-width: 100vw;
+    overflow: hidden;
+    margin: 0px;
+}
+.header {
+    padding-top: 70px;
 }
 .img-thumbnail {
     max-height: 200px;
+}
+.title {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.title h1 {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 10em;
+}
+.title h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    font-weight: 200;
 }
 /* Cart App Styles */
 .card {
