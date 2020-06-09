@@ -53,19 +53,19 @@
                                 <p class="work-description">{{ work.description }}</p>
                                 <p>Price: £{{ work.price }}</p>
                             </div>
-                    <form method="post" action="{% url 'add_to_cart' work.id %}">
-                        {% csrf_token %}
-                        <div class="input-group">
-                            <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
-                            <span class="input-group-btn">
-                                <button class="btn btn-success" type="submit">Add</button>
-                            </span>
-                        </div>
-                    </form>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Add to Basket</button>
+                                <form method="post" action="{% url 'add_to_cart' work.id %}">
+                                {% csrf_token %}
+                                    <div class="input-group">
+                                        <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-success" type="submit">Add</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </span>
+                                    </div>
+                                </form>
+
                             </div>                           
                         </div>
                     </div>
