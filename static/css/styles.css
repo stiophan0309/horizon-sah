@@ -66,9 +66,7 @@ body {
     padding: 10px;
     background: #02c39a;
 }
-.img-thumbnail {
-    max-height: 300px;
-}
+
 
 /* Cart App Styles */
 .card {
@@ -82,10 +80,11 @@ form {
     width: 50%;
 }
 
-
+/* Image thumbnails */
 .image-wrapper {
   display: inline-block;
   position: relative;
+  margin: 10px 10px 10px 0px;
 }
 
 .image-wrapper img {
@@ -115,4 +114,11 @@ form {
 }
 .price {
     color: #ff0;
+}
+.thumb {
+    max-width: 100%;
+    height: auto;
+}
+.thumbX {
+    max-height: 300px;
 }
