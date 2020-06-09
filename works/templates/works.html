@@ -5,42 +5,41 @@
 {% block content %}
 
 <section class="header">
-<div class="row container">
-    <div class="col-sm-12">
-        <h3>Gallery & Shop</h3>
-    </div>
-</div>
-<div class="row container">
-    <div class="col-sm-12">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita odio veritatis, ad sequi ex nam ab impedit libero at, inventore iusto rem quasi recusandae autem corporis id aliquid! Ad, rerum!</p>
-    </div>
-</div>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Gallery & Shop</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita odio veritatis, ad sequi ex nam ab impedit libero at, inventore iusto rem quasi recusandae autem corporis id aliquid! Ad, rerum!</p>
+            </div>
+        </div>
+        </div>
 </section>
 
 <section class="body">
 
-<div class="row text-center text-lg-left container">
+<div class="container">
+<div class="row">
+    
     {% for work in works %}
         
             <div class="col-lg-3 col-md-4 col-6 item">
-                <div class="thumbnail">
+<!--             <div class="thumbnail">
                     <a href="#" class="d-block mb-4 h-100" data-toggle="modal" data-target="#modal-work-{{work.pk}}">
                         <img class="img-responsive img-thumbnail" src="{{ MEDIA_URL}}{{work.image}}" alt="{{ work.title }}">
                     </a>
-                </div>
+                </div>-->
+                <div class="image-wrapper">
+                    <img class="img-thumbnail" src="{{ MEDIA_URL}}{{work.image}}" alt="{{ work.title }}">
+                    <div class="image-overlay"></div>
+                            <p>{{ work.title }}</p>
+                    </div>
                 <div class="caption">
                     <h5>{{ work.title }}</h5>
                     <p>Price: £{{ work.price }}</p>                  
-                    <form method="post" action="{% url 'add_to_cart' work.id %}">
-                        {% csrf_token %}
-                        <div class="input-group">
-                            <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
-                            <span class="input-group-btn">
-                                <button class="btn btn-success" type="submit">Add</button>
-                            </span>
-                        </div>
-                    </form>
                 </div>
                 <!-- Modal -->
                 <div class="modal fade" id="modal-work-{{work.pk}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -62,6 +61,16 @@
                                 <p class="work-description">{{ work.description }}</p>
                                 <p>Price: £{{ work.price }}</p>
                             </div>
+                    <form method="post" action="{% url 'add_to_cart' work.id %}">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                            <span class="input-group-btn">
+                                <button class="btn btn-success" type="submit">Add</button>
+                            </span>
+                        </div>
+                    </form>
+
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="button" class="btn btn-primary">Add to Basket</button>
@@ -74,6 +83,8 @@
             </div>
         
     {% endfor %}
+
+</div>
 </div>
 </section>
 
