@@ -33,14 +33,12 @@
                     </a>
                 </div>-->
                 <div class="image-wrapper">
+                <a data-toggle="modal" data-target="#modal-work-{{work.pk}}">
                     <img class="img-thumbnail" src="{{ MEDIA_URL}}{{work.image}}" alt="{{ work.title }}">
                     <div class="image-overlay"></div>
-                            <p>{{ work.title }} <span>£{{ work.price }}</span></p>
+                            <p>{{ work.title }} <span class="price">£{{ work.price }}</span></p>
+                </a>
                     </div>
-                <div class="caption">
-                    <h5>{{ work.title }}</h5>
-                    <p>Price: £{{ work.price }}</p>                  
-                </div>
                 <!-- Modal -->
                 <div class="modal fade" id="modal-work-{{work.pk}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
