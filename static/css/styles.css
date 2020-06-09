@@ -103,11 +103,13 @@ form {
   z-index: 2; /* puts this div 'in front' of the image */
 }
 
-.image-wrapper p {
+.image-wrapper p, span {
   position: absolute;
   bottom: -5%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
   z-index: 3; /* puts the text in front of the dark overlay */
+  width: 100%;
+  text-align: center;
 }
