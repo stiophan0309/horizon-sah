@@ -122,3 +122,13 @@ form {
 .thumbX {
     max-height: 300px;
 }
+/* Modal styles */
+.modal-header, .modal-footer {
+    background: #02c39a;
+}
+.modal-body {
+    background: #f0f3bd;
+    border-top: 2px solid #028090;
+    border-bottom: 2px solid #028090;
+
+}
