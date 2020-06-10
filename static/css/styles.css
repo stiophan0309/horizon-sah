@@ -3,6 +3,13 @@ body {
     margin: 0;
     background-color: #028090;    
 }
+.centre {
+    margin: 0 auto;
+}
+.wrap {
+    width: 90%;
+    margin: 0 auto;
+}
 /* Navbar styles */
 .nav-bg {
     background-color: #028090;
@@ -131,4 +138,8 @@ form {
     border-top: 2px solid #028090;
     border-bottom: 2px solid #028090;
 
+}
+
+#login {
+    margin: auto;
 }
