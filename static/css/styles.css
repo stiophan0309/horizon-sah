@@ -143,3 +143,6 @@ form {
 .user {
     margin: auto;
 }
+.admin {
+    text-align: center;
+}
