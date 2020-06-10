@@ -84,7 +84,7 @@ form {
 .image-wrapper {
   display: inline-block;
   position: relative;
-  margin: 10px 10px 10px 0px;
+  margin: 10px 10px 10px 10px;
 }
 
 .image-wrapper img {

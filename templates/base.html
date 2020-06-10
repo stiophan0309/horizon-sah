@@ -11,10 +11,6 @@
     <title>{% block page_title %}{% endblock %}</title>
 </head>
 <body>
-    <h1>
-        {% block page_heading %}{% endblock %}
-    </h1>
-
 <nav class="navbar fixed-top navbar-expand-lg navbar-light nav-bg">
     <a class="nav-link navbar-brand" href="{% url 'index' %}">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +49,7 @@
     </div>
 </nav>
 
-        {% if messages %}
+    {% if messages %}
     <div>
         {% for message in messages %} {{ message }} {% endfor %}
     </div>
