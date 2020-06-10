@@ -19,7 +19,7 @@
 <section class="body">
     <div class="row wrap">
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto">
-                <form id="login" method="POST">
+                <form class="user" method="POST">
                 {% csrf_token %} {{ login_form | as_bootstrap }}
                     <button type="submit" class="btn btn-secondary">Login</button>
                     <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
