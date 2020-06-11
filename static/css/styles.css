@@ -148,3 +148,8 @@ form {
 .admin {
     text-align: center;
 }
+.panel {
+    width: 80%;
+    margin: 0 auto;
+    background: #02c39a;
+}
