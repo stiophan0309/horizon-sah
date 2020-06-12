@@ -15,12 +15,16 @@ body {
 }
 /* Navbar styles */
 .nav-bg {
-    background-color: #0095d9;
-    border-bottom: 1px solid #fff;
+    /*background-color: #0095d9;*/
+    background: rgb(5,102,141);
+    background: linear-gradient(180deg, rgba(5,102,141,1) 0%, rgba(0,149,217,1) 65%);
+    -webkit-box-shadow: 0px 10px 5px -4px rgba(5,102,141,1);
+    -moz-box-shadow: 0px 10px 5px -4px rgba(5,102,141,1);
+    box-shadow: 0px 10px 5px -4px rgba(5,102,141,1);
 }
 
 .btn-search {
-    background-color: #00a896;
+    background-color: #05668d;
     border-color: #f0f3bd;
     color: #f0f3bd;
 }
