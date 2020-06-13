@@ -157,3 +157,18 @@ form {
     margin: 0 auto;
     background: #02c39a;
 }
+.section-title {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 4em;
+    text-align: center;
+}
+.section-subtitle {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 2em;
+    text-align: center;
+}
+.text-area {
+    background: #f0f3bd;
+    padding: 20px;
+    width: 90%;
+}
