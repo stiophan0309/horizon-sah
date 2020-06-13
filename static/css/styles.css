@@ -77,6 +77,11 @@ body {
     padding: 30px;
     margin: 5%;
 }
+.inner {
+    background: #00a896;
+    width: 95%;
+    padding: 20px;
+}
 .item {
     border: 1px solid #f0f3bd;
     margin: 5px;
