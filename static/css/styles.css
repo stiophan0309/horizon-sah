@@ -69,9 +69,13 @@ body {
 }
 
 /* gallery styles */
-.container {
-    margin: 0px 20px 0px 20px;
-    width: 95%;
+.gallery-header {
+    padding-top: 10px;
+}
+.wrapper {
+    background: #f0f3bd;
+    padding: 30px;
+    margin: 5%;
 }
 .item {
     border: 1px solid #f0f3bd;

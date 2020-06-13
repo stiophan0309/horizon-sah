@@ -3,25 +3,25 @@
 {% load bootstrap_tags %}
 
 {% block content %}
-
-<section class="header">
-    <div class="container">
+<div class="wrapper">
+<section class="gallery-header">
+    
         <div class="row">
-            <div class="col-sm-12">
-                <h3>Gallery & Shop</h3>
+            <div class="col-sm-12 w-80 mx-auto">
+                <h1 class="section-title">Horizon</h1>
+                <h3 class="section-subtitle">Gallery & Shop</h3>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12 w-80 mx-auto">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita odio veritatis, ad sequi ex nam ab impedit libero at, inventore iusto rem quasi recusandae autem corporis id aliquid! Ad, rerum!</p>
             </div>
         </div>
-        </div>
+        
 </section>
 
 <section class="body">
 
-<div class="container">
 <div class="row">
     
     {% for work in works %}
@@ -75,8 +75,9 @@
     {% endfor %}
 
 </div>
-</div>
+
 </section>
+</div>
 
 
 
