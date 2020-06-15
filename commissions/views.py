@@ -10,7 +10,7 @@ def commissions_form(request):
  
         if form.is_valid():
             form.save()
-            return render(request, 'commissions.html')
+            return render(request, "commissions.html")
     else:
         form = CommissionsForm()
-    return render(request, 'commissions.html', {'form': form})
+    return render(request, "commissions.html", {'form': form})
