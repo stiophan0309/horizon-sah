@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+
+{% block content %}
+
+<h1>Commissions</h1>
+<form role="form" method="post" id="commissions-form" class="commissions" action="{% url 'commissions' %}">
+{{ form | as_bootstrap }}
+</form>
+
+{% endblock %}

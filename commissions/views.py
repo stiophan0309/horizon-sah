@@ -1,11 +1,10 @@
-from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
-from .models import Commissions
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from .forms import CommissionsForm
+from django.core.mail import send_mail, BadHeaderError
 
 # Create your views here.
-def sendView(request):
+def commission(request):
     if request.method == 'GET':
         form = CommissionsForm()
     else:
@@ -18,7 +17,7 @@ def sendView(request):
                 send_mail(name, email, description, ['steven.a.horne@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return render(request, "email.html", {'form': form})
+            return render(request, "commissions.html", {'form': form})
 
-def successView(request):
+def commission_success(request):
     return HttpResponse('Success! Your request was sent.')

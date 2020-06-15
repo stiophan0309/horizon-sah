@@ -1,7 +1,8 @@
 from django.conf.urls import url
-from .views import sendView, successView
+from .views import commission, commission_success
+
 
 urlpatterns = [
-    url(r'^$', sendView, name='send'),
-    url(r'^$', successView, name='success'),
+     url(r'^$', commission, name="commission"),
+    url(r'^commission_success/', commission_success, name='commission_success'),
 ]
