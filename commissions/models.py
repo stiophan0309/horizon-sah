@@ -1,14 +1,19 @@
 from django.db import models
 
-# Create your models here.
-class Work(models.Model):
-    name = models.CharField(max_length=254, default='')
-    email = models.EmailField(max_length=254, default='')
-    description = models.TextField()
-    media = models.CharField(max_length=254, default='')
-    surface = models.CharField(max_length=254, default='')
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    image = models.ImageField(upload_to='images')
-
+class Product(models.Model):
+    name = models.CharField(max_length=120)
+ 
     def __str__(self):
         return self.name
+ 
+ 
+class Commissions(models.Model):
+    customer_name = models.CharField(max_length=120)
+    email = models.EmailField()
+    product = models.ForeignKey(Product)
+    details = models.TextField()
+    media = models.BooleanField()
+    date = models.DateField(auto_now_add=True)
+ 
+    def __str__(self):
+        return self.customer_name
