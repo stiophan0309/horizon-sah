@@ -7,11 +7,7 @@ from .forms import ContactForm
 # Create your views here.
 def index(request):
     """A view that displays the index page"""
-    return render(request, "index.html")
-
-def about(request):
-    """A view that displays the about page"""
-    return render(request, "about.html")
+    return render(request, 'index.html')
 
 def contact(request):
     """View handle contact form requests"""
@@ -38,4 +34,5 @@ def contact(request):
                                     extra_tags="alert-danger")
     else:
         contact_form = ContactForm()
-    return render(request, 'index.html#contact', {'contact_form': contact_form})
+    return render(request, 'index.html', {'contact_form': contact_form})
+
