@@ -1,20 +1,15 @@
 from django.db import models
-from django.utils import timezone
 
-class Product(models.Model):
-    name = models.CharField(max_length=120)
- 
+# Create your models here.
+class Item(models.Model):
+
+    name = models.CharField(max_length=30, blank=False)
+    done = models.BooleanField(blank=False, default=False)
+    media = models.CharField(max_length=30, blank=False)
+    surface = models.CharField(max_length=30, blank=False)
+    size = models.CharField(max_length=30, blank=False)
+    details = models.CharField(max_length=30, blank=False)
+
     def __str__(self):
+        """ makes readable description in admin panel """
         return self.name
- 
- 
-class Commissions(models.Model):
-    customer_name = models.CharField(max_length=120)
-    email = models.EmailField()
-    product = models.ForeignKey(Product)
-    details = models.TextField()
-    media = models.BooleanField()
-    date = models.DateField(auto_now_add=True)
- 
-    def __str__(self):
-        return self.customer_name
