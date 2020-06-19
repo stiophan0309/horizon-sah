@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+
+{% block content %}
+<div class="container-fluid header">
+    <div class="form-group col-md-6">
+        {{ form | as_bootstrap }}
+    </div>
+</div>
+{% endblock %}
