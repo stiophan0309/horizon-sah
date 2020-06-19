@@ -27,13 +27,14 @@ class Custom(models.Model):
 
     name = models.CharField(max_length=254, blank=False)
     email = models.EmailField(max_length=254, blank=False)
-    date = models.DateField(auto_now=True, auto_now_add=True)
+    date = models.DateTimeField(blank=True, null=True, default=timezone.now)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='new')
     media = models.CharField(max_length=20, choices=MEDIA_CHOICES, default='pastel')
     surface = models.CharField(max_length=20, choices=SURFACE_CHOICES, default='paper')
     size = models.CharField(max_length=30, blank=False)
+    image = models.ImageField(upload_to="img", blank=True, null=True)
     details = models.TextField(blank=False)
 
-    def __str__(self):
+    def __unicode__(self):
         """ makes readable description in admin panel """
         return self.name
