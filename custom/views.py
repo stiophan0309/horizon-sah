@@ -9,7 +9,7 @@ def create_custom(request):
         form = CustomForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect(create_custom)
+            return redirect(request_confirmation)
     else:
         form = CustomForm()
 
