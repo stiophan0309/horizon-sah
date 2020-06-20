@@ -14,3 +14,7 @@ def create_custom(request):
         form = CustomForm()
 
     return render(request, "custom.html", {'form': form})
+
+def request_confirmation(request):
+    """A view that displays the index page"""
+    return render(request, 'confirmation.html')
