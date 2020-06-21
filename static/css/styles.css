@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Poppins&display=swap');
-html, body {
+html {
+    scroll-behavior: smooth;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
 }
 body {
     margin: 0;
     background-color: #028090;
+}
+.container-fluid {
+    padding: 0;
 }
 .centre {
     margin: 0 auto;
@@ -38,7 +42,7 @@ body {
     min-height: 100vh;
 }
 #header {
-    margin-top: 150px;
+    margin: 150px 0px 0px 0px;
     width: 100%;
 }
 
@@ -46,11 +50,10 @@ body {
     background: url(../../media/img/bg.jpg) no-repeat;
     background-size: cover;
     background-position: center;
-    width: 100%;
     min-height: 100vh;
     min-width: 100vw;
-    overflow: hidden;
     margin: 0px;
+    padding: 0;
 }
 .header {
     padding-top: 70px;

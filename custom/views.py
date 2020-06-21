@@ -11,7 +11,7 @@ def create_custom(request):
         form = CustomForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.error(request, "Request submitted")
+            messages.success(request, "Request submitted")
             return redirect(reverse('request_confirmation'))
     else:
         form = CustomForm()
