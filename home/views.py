@@ -9,19 +9,14 @@ def index(request):
     return render(request, 'index.html')
 
 
-def contact_form(request):
+def contact(request):
     if request.method=="POST":
         form = ContactForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, "Request submitted")
-            return redirect(reverse('request_confirmation'))
+            return redirect(reverse('contact'))
     else:
         form = ContactForm()
 
-    return render(request, "index.html#contact", {'form': form})
-
-
-def request_confirmation(request):
-    """A view that displays the index page"""
-    return render(request, 'confirmation.html')
+    return render(request, "contact.html", {'form': form})

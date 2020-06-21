@@ -18,26 +18,25 @@ from django.contrib import admin
 from home.views import index
 from accounts import urls as urls_accounts
 from works import urls as urls_works
-from works.views import all_works
-from custom.views import create_custom
+# from works.views import all_works
+# from custom.views import create_custom
 from custom import urls as urls_custom
-from home.views import contact_form
+# from home.views import contact
 from home import urls as urls_home
 from cart import urls as urls_cart
 from search import urls as urls_search
 from checkout import urls as urls_checkout
-from django.views.generic import RedirectView
 from django.views import static
 from .settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
-    url(r'^$', all_works, name='works'),
-    url(r'^$', create_custom),
+    # url(r'^$', contact, name='contact'),
+    # url(r'^$', all_works, name='works'),
+    # url(r'^$', create_custom),
     url(r'^works/', include(urls_works)),
     url(r'^accounts/', include(urls_accounts)),
-    url(r'^$', RedirectView.as_view(url='custom/')),
     url(r'^custom/', include(urls_custom)),
     url(r'^home/', include(urls_home)),
     url(r'^cart/', include(urls_cart)),
