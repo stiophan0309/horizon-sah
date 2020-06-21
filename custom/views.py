@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect, get_object_or_404, reverse
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import Custom
 from .forms import CustomForm
 
@@ -10,6 +11,7 @@ def create_custom(request):
         form = CustomForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            messages.error(request, "Request submitted")
             return redirect(reverse('request_confirmation'))
     else:
         form = CustomForm()

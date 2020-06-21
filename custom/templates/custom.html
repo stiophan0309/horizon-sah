@@ -5,6 +5,13 @@
 {% block content %}
 <div class="container-fluid header">
     <div class="form-group col-md-6">
+    {% if messages %}
+    <div>
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
     <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
         {{ form | as_bootstrap }}
