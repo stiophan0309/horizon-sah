@@ -46,6 +46,19 @@
         <div class="body">
             <div class="row">
                 <div class="w-80 mx-auto text-area">
+                <div class="form-group col-md-6">
+    {% if messages %}
+    <div>
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+        {{ form | as_bootstrap }}
+        <button type="submit" class="btn btn-info">Send</button>
+        </form>
                 </div>
 
             </div>

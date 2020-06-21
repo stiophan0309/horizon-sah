@@ -21,6 +21,8 @@ from works import urls as urls_works
 from works.views import all_works
 from custom.views import create_custom
 from custom import urls as urls_custom
+from home.views import contact_form
+from home import urls as urls_home
 from cart import urls as urls_cart
 from search import urls as urls_search
 from checkout import urls as urls_checkout
@@ -37,6 +39,7 @@ urlpatterns = [
     url(r'^accounts/', include(urls_accounts)),
     url(r'^$', RedirectView.as_view(url='custom/')),
     url(r'^custom/', include(urls_custom)),
+    url(r'^home/', include(urls_home)),
     url(r'^cart/', include(urls_cart)),
     url(r'^checkout/', include(urls_checkout)),
     url(r'^search/', include(urls_search)),
