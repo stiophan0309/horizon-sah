@@ -45,32 +45,24 @@
             </div>
         </div>
 
-        <div class="body">
-            <div class="row">
-                <div class="w-80 mx-auto text-area">
-                <div class="form-group col-md-6">
-    {% if messages %}
-    <div>
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-    </div>
-    {% endif %}
-    <form method="POST" action="." enctype="multipart/form-data">
-    {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-info">Send</button>
-        </form>
-                </div>
+<div class="body">
 
-            </div>
-        </div>
+
+    <form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="btn btn-info">Send</button>
+    </form>
+
+
+</div>
+
 
         <div class="footer">
             <div class="row">
             </div>
         </div>
-        </div>
+
 </section>
 <!-- End of Contact Page -->
 

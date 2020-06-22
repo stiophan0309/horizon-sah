@@ -3,5 +3,32 @@
 {% block page_heading %}{{ user }}'s Profile{% endblock %} 
 
 {% block content %}
-<p>{{ profile.email }}</p>
+<div class="container-fluid">
+
+            <div class="row">
+    <div class="col-12 offset-md-1 col-md-10">
+        <div class="black-background">
+            <p>Hi {{ user }}!</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 offset-md-1 col-md-10">
+        <div class="black-background">
+            <p>Your account details:</p>
+            <p>Email address: {{ profile.email }}</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 offset-md-1 col-md-10">
+        <div class="black-background">
+            <p>Would you like to <a href="{% url 'password_reset' %}">reset your password</a>?</p>
+        </div>
+    </div>
+</div>
+        </div>
+   
+
+
 {% endblock %}

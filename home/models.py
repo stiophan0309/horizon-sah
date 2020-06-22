@@ -21,4 +21,3 @@ class Contact(models.Model):
     def __unicode__(self):
         """ makes readable description in admin panel """
         return self.name
-

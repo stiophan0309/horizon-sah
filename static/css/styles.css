@@ -199,3 +199,7 @@ form {
     top: 5rem;
     right: 1rem;
 }
+
+.page-heading {
+    margin-top: 100px;
+}
