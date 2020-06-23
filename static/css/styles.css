@@ -226,3 +226,19 @@ box-shadow: 3px 3px 10px 4px rgba(0,100,83,1);
 .page-heading {
     margin-top: 100px;
 }
+
+.admin {
+    width: 100%;
+    background: #05668d;
+    padding: 20px;
+    margin: 10px;
+}
+.admin-left {
+    text-align: left;
+}
+.admin-right {
+    text-align: right;
+}
+.admin-links {
+    text-align: center;
+}

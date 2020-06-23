@@ -1,21 +1,36 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
-<div class="header text-area">
-<h2>You are logged in as {{ user.username }} </h2>
-<h4>and your shipping details are:</h4>
-<p><span class="boldtext text-primary">Full Name:</span> {{ profile.full_name }}</p>
-<p><span class="boldtext text-primary">Phone Number:</span> {{ profile.phone_number }}</p>
-<p><span class="boldtext text-primary">Country:</span> {{ profile.country }}</p>
-<p><span class="boldtext text-primary">Postcode:</span> {{ profile.postcode }}</p>
-<p><span class="boldtext text-primary">Town/City:</span> {{ profile.town_or_city }}</p>
-<p><span class="boldtext text-primary">Street Address 1:</span> {{ profile.street_address1 }}</p>
-<p><span class="boldtext text-primary">Street Address 2:</span> {{ profile.street_address2 }}</p>
-<p><span class="boldtext text-primary">County:</span> {{ profile.county }}</p>
-<a href="{% url 'orders' %}"  class="btn btn-default">View Orders</a>
-<a href="{% url 'edit_profile' %}"  class="btn btn-default">Edit profile</a>
-<a href="{% url 'delete_profile' %}"  class="btn btn-default">Delete profile</a>
+<div class="container-fluid">
+    <div class="row header">
+        <div class="col-sm-12">
+            <h1 class="section-title">Horizon</h1>
+    </div>
+    <div class="row admin">
+        <div class="col-sm-12 col-md-8 admin-left">
+            <h3>You are logged in as <span class="text-white">{{ user.username }}</span> </h3>
+        </div>
+        <div class="col-sm-12 col-md-4 admin-right">
+            <h4>Personal Details:</h4>
+            <p><span class="boldtext text-info">Full Name:</span> {{ profile.full_name }}</p>
+            <p><span class="boldtext text-info">Phone Number:</span> {{ profile.phone_number }}</p>
+            <p><span class="boldtext text-info">Street Address 1:</span> {{ profile.street_address1 }}</p>
+            <p><span class="boldtext text-info">Street Address 2:</span> {{ profile.street_address2 }}</p>  
+            <p><span class="boldtext text-info">Town/City:</span> {{ profile.town_or_city }}</p>
+            <p><span class="boldtext text-info">County:</span> {{ profile.county }}</p>
+            <p><span class="boldtext text-info">Country:</span> {{ profile.country }}</p>
+            <p><span class="boldtext text-info">Postcode:</span> {{ profile.postcode }}</p>
+            
+        
+        </div>
+    </div>
+    <div class="row admin-links">
+        <div class="col-sm-12 mx-auto">
+            <a href="{% url 'orders' %}"  class="btn btn-info">View Orders</a>
+            <a href="{% url 'edit_profile' %}"  class="btn btn-warning">Edit profile</a>
+            <a href="{% url 'delete_profile' %}"  class="btn btn-danger">Delete profile</a>
+        </div>
+    </div>
 </div>
-
 
 {% endblock %}
