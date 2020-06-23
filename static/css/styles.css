@@ -31,6 +31,9 @@ body {
     margin-top: 50px;
 }
 /* Navbar styles */
+nav {
+    margin-bottom: 70px;
+}
 .nav-bg {
     /*background-color: #0095d9;*/
     background: rgb(5,102,141);
@@ -50,7 +53,7 @@ body {
     width: 600px;
 }
 /* Home Page styles */
-#index, #contact, #about {
+#index, #about {
     min-height: 100vh;
     min-width: 100vw;
     overflow: hidden;
@@ -85,18 +88,40 @@ body {
 }
 
 /* gallery styles */
-.gallery-header {
-    padding-top: 10px;
-}
-.wrapper {
+.outer {
     background: #f0f3bd;
-    padding: 30px;
-    margin: 5%;
+    padding: 20px;
+    margin: 20px auto;
+    margin-top: 100px;
+    width: 95%;
+}
+.section-title {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 4em;
+    text-align: center;
+}
+.section-subtitle {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 2em;
+    text-align: center;
+}
+.section-text {
+    width: 95%;
+    margin: o auto;
+
+}
+.inner-top {
+        width: 95%;
+    padding: 20px;
+    margin: 0 auto;
+
 }
 .inner {
     background: #00a896;
     width: 95%;
     padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 100px;
 }
 
 .item {
@@ -124,6 +149,9 @@ form {
   display: inline-block;
   position: relative;
   margin: 10px 10px 10px 10px;
+  -webkit-box-shadow: 3px 3px 10px 4px rgba(0,100,83,1);
+-moz-box-shadow: 3px 3px 10px 4px rgba(0,100,83,1);
+box-shadow: 3px 3px 10px 4px rgba(0,100,83,1);
 }
 
 .image-wrapper img {
@@ -182,16 +210,7 @@ form {
     margin: 0 auto;
     background: #02c39a;
 }
-.section-title {
-    font-family: 'Julius Sans One', sans-serif;
-    font-size: 4em;
-    text-align: center;
-}
-.section-subtitle {
-    font-family: 'Julius Sans One', sans-serif;
-    font-size: 2em;
-    text-align: center;
-}
+
 .text-area {
     background: #f0f3bd;
     padding: 20px;

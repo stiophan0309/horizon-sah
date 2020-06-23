@@ -3,27 +3,22 @@
 {% load bootstrap_tags %}
 
 {% block content %}
-<div class="wrapper">
-<section class="gallery-header">
+<div class="container-fluid outer">
+
     
-        <div class="row">
-            <div class="col-sm-12 w-80 mx-auto">
-                <h1 class="section-title">Horizon</h1>
-                <h3 class="section-subtitle">Gallery & Shop</h3>
-            </div>
+    <div class="row header inner-top">
+        <div class="col-sm-12 w-80 mx-auto">
+            <h1 class="section-title">Horizon</h1>
+            <h3 class="section-subtitle">Gallery & Shop</h3>
         </div>
-        <div class="row">
-            <div class="col-sm-12 w-80 mx-auto">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita odio veritatis, ad sequi ex nam ab impedit libero at, inventore iusto rem quasi recusandae autem corporis id aliquid! Ad, rerum!</p>
-            </div>
+
+        <div class="col w-80 mx-auto section-text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita odio veritatis, ad sequi ex nam ab impedit libero at, inventore iusto rem quasi recusandae autem corporis id aliquid! Ad, rerum!</p>
         </div>
-        
-</section>
+    </div>
 
-<section class="body">
-
-    <div class="row">
-        <div class="col-sm-12 w-80 mx-auto inner">
+    <div class="row inner">
+        <div class="col-sm-12 w-80 mx-auto">
             {% for work in works %}
             <div class="image-wrapper">
                 <a data-toggle="modal" data-target="#modal-work-{{work.pk}}">
@@ -72,10 +67,11 @@
             </div>
             <!-- End of Modal -->       
             {% endfor %}
+
         </div>
     </div>
 
-</section>
+
 </div>
 
 
