@@ -4,4 +4,14 @@
 
 {% block content %}
 
+<div class="container-fluid">
+    <div class="header text-area">
+    <form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="btn btn-info">Send</button>
+    </form>
+    </div>
+</div>
+
 {% endblock %}

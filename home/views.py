@@ -11,7 +11,7 @@ def index(request):
 
 def contact(request):
     if request.method=="POST":
-        form = ContactForm(request.POST, request.FILES)
+        form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, "Request submitted")
@@ -19,4 +19,4 @@ def contact(request):
     else:
         form = ContactForm()
 
-    return render(request, "contact.html", {'form': form(request.POST)})
+    return render(request, "contact.html", {'form': form})
