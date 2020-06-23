@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Poppins&display=swap');
-html {
+
+/* Global styles */
+html, body {
     scroll-behavior: smooth;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
@@ -21,10 +23,14 @@ body {
     width: 90%;
     margin: 0 auto;
 }
-/* Navbar styles */
-.navbar {
-    padding: 0px;
+.header {
+    padding-top: 100px;
 }
+.main {
+    margin: 0 auto;
+    margin-top: 50px;
+}
+/* Navbar styles */
 .nav-bg {
     /*background-color: #0095d9;*/
     background: rgb(5,102,141);
@@ -63,9 +69,7 @@ body {
     margin: 0px;
     padding: 0;
 }
-.header {
-    padding-top: 70px;
-}
+
 .title {
     width: 100%;
     margin: 0 auto;
