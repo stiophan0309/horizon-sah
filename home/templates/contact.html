@@ -2,16 +2,28 @@
 {% load bootstrap_tags %}
 {% load staticfiles %}
 
+
 {% block content %}
+<section class="header">
+    <div class="row wrap">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto admin inner">
+            <h1 class="section-title">Horizon</h1>
+            <h3 class="section-subtitle">Contact Page</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti molestiae excepturi perferendis doloribus ipsa consequuntur repudiandae distinctio similique, alias repellat deserunt, ratione illum nostrum recusandae vel ipsam, deleniti non praesentium?</p>
 
-<div class="container-fluid">
-    <div class="header text-area">
-    <form method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit" class="btn btn-info">Send</button>
-    </form>
+        </div>
     </div>
-</div>
+</section>
 
+<section class="body">
+    <div class="row wrap">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto inner">
+            <form method="POST" class="mx-auto">
+            {% csrf_token %}
+            {{ form | as_bootstrap }}
+            <button type="submit" class="btn btn-info">Send</button>
+            </form>
+        </div>
+    </div>
+</section>
 {% endblock %}
