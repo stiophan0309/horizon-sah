@@ -86,9 +86,7 @@ def profile(request):
         # retrieves the Profile object associated with current user
         currentprofile = Profile.objects.get(user=user_id)
         # renders profile.html with the Profile info of the current user
-        orders = Order.objects.all().order_by('date')
-        order_line_items = OrderLineItem.objects.all().order_by('-order')
-        return render(request, 'profile.html', {'profile': currentprofile, 'orders': orders, 'order_line_items': order_line_items})
+        return render(request, 'profile.html', {'profile': currentprofile})
     except Profile.DoesNotExist:
         # renders profile.html without Profile information,
         # typically because user has not yet filled in

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
+<div class="header text-area">
 <h2>You are logged in as {{ user.username }} </h2>
 <h4>and your shipping details are:</h4>
 <p><span class="boldtext text-primary">Full Name:</span> {{ profile.full_name }}</p>
@@ -14,20 +15,7 @@
 <a href="{% url 'orders' %}"  class="btn btn-default">View Orders</a>
 <a href="{% url 'edit_profile' %}"  class="btn btn-default">Edit profile</a>
 <a href="{% url 'delete_profile' %}"  class="btn btn-default">Delete profile</a>
+</div>
 
-<h2>Order History</h2>
-<div class="row">
-   <div class="boldtext text-primary col-xs-2 col-sm-2 col-md-2">Date</div>
-   <div class="boldtext text-primary col-xs-5 col-sm-4 col-md-3">Product</div>
-   <div class="boldtext text-primary col-xs-2 col-sm-2 col-md-2">Quantity</div>
-</div>
-{% for OrderLineItem in order_line_items %}
-{% if OrderLineItem.order.user == user %}
-<div class="row row-flex display panel panel-default">
-   <div class="col-xs-2 col-sm-2 col-md-2">{{ OrderLineItem.order.date }}</div>
-   <div class="col-xs-5 col-sm-4 col-md-3">{{ OrderLineItem.product }}</div>
-   <div class="col-xs-2 col-sm-2 col-md-2">{{ OrderLineItem.quantity }}</div>
-</div>
-{% endif %}
-{% endfor %}
+
 {% endblock %}
