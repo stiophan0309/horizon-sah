@@ -3,19 +3,20 @@
 {% load bootstrap_tags %}
 
 {% block content %}
-<div class="container-fluid header">
-    <div class="form-group col-md-6">
-    {% if messages %}
-    <div>
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
+<div class="container-fluid">
+    <div class="header">
+        <div class="row">
+            <div class="col-sm-12">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto admin inner">
+            <h1 class="section-title">Horizon</h1>
+            <h3 class="section-subtitle">Commissions</h3>
+            <a href="{% url 'custom_form' %}">Request Commission</a>
+
+
+        </div>
+            </div>
+        </div>
     </div>
-    {% endif %}
-    <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-        {{ form | as_bootstrap }}
-        <button type="submit" class="btn btn-info">Save</button>
-        </form>
+
 </div>
 {% endblock %}
