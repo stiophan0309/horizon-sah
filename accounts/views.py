@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect
 from django.contrib import auth, messages
+from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse, reverse_lazy
@@ -12,9 +13,11 @@ from checkout.models import Order, OrderLineItem
 
 # Create your views here.
 
+
 def index(request):
     """Return the index.html file"""
     return render(request,  'index.html')
+
 
 @login_required
 def logout(request):
@@ -22,6 +25,7 @@ def logout(request):
     auth.logout(request)
     messages.success(request, "You have successfully been logged out")
     return redirect(reverse('index'))
+
 
 def login(request):
     """Return a login page"""
@@ -72,6 +76,7 @@ def login(request):
 #     user = User.objects.get(email=request.user.email)
 #     return render(request, 'profile.html', {"profile": user})
 
+
 @login_required
 def profile(request):
     """A view that displays the profile page of a logged in user"""
@@ -87,6 +92,7 @@ def profile(request):
         # typically because user has not yet filled in
         # their profile information
         return render(request, 'profile.html')
+
 
 def register(request):
     """A view that manages the registration form"""
@@ -109,7 +115,7 @@ def register(request):
         user_form = UserRegistrationForm()
 
     args = {'user_form': user_form}
-    return render(request, 'register.html', args)
+    return render(request, 'registration.html', args)
 
 
 @login_required(login_url=reverse_lazy("login"))
