@@ -7,7 +7,7 @@ from .models import Profile
 
 
 class UserLoginForm(forms.Form):
-    """Form to be used to log users in"""
+    """ Form to log usees in """
 
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
@@ -15,9 +15,8 @@ class UserLoginForm(forms.Form):
 
 class UserRegistrationForm(UserCreationForm):
     """
-    Form for a user to register for an account
-    Ensures that email is of a valid syntax
-    Ensures that passwords match
+    Form to register a user account
+    The Form will check email is valid and password entered twice correctly
     """
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
     password2 = forms.CharField(
@@ -51,7 +50,7 @@ class UserRegistrationForm(UserCreationForm):
 
 class UserUpdateForm(forms.Form):
     """
-    Form for a user to edit their email and password
+    Form for existing users to add/edit details
     """
     email = forms.EmailField()
     current_password = forms.CharField(widget=forms.PasswordInput,
@@ -84,8 +83,7 @@ class UserUpdateForm(forms.Form):
 
 class ProfileForm(forms.ModelForm):
     """
-    The form for a user to fill out their basic profile information
-    (name, address, etc.)
+    The form for a registered user to add further details i.e address
     """
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
