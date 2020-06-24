@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse
+from django.contrib import messages
 
 def view_cart(request):
     """A View that renders the cart contents page"""
@@ -7,16 +8,21 @@ def view_cart(request):
 
 def add_to_cart(request, id):
     """Add a quantity of the specified product to the cart"""
-    quantity = int(request.POST.get('quantity'))
+    try:
+        quantity = int(request.POST.get('quantity'))
 
-    cart = request.session.get('cart', {})
-    if id in cart:
-        cart[id] = int(cart[id]) + quantity
-    else:
-        cart[id] = cart.get(id, quantity)
+        cart = request.session.get('cart', {})
+        if id in cart:
+            cart[id] = int(cart[id]) + quantity
+        else:
+            cart[id] = cart.get(id, quantity)
 
-    request.session['cart'] = cart
-    return redirect(reverse('view_cart'))
+        request.session['cart'] = cart
+        return redirect(reverse('view_cart'))
+    except ValueError:
+        messages.error(request, "Quantity must be greater than zero")
+        return redirect(reverse('works'))
+
 
 
 def remove_from_cart(request, id):
