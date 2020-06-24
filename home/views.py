@@ -10,6 +10,7 @@ def index(request):
 
 
 def contact(request):
+    """A view that displays the contact page"""
     if request.method=="POST":
         form = ContactForm(request.POST)
         if form.is_valid():

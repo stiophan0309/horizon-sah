@@ -23,5 +23,5 @@ def custom_form(request):
 
 
 def request_confirmation(request):
-    """A view that displays the index page"""
+    """ Confirmation message """
     return render(request, 'confirmation.html')

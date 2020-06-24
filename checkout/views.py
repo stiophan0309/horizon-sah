@@ -18,9 +18,9 @@ stripe.api_key = settings.STRIPE_SECRET
 @login_required()
 def checkout(request):
     user_id = request.user.pk
-    # restrieves the Profile info of the current user
+    # retrieves the Profile info of the current user
     if Profile.objects.filter(user=user_id).exists():
-        # condenses Profile info to a single variable
+        # turns Profile info to a single variable
         currentprofile = Profile.objects.get(user=user_id)
         form = ProfileForm(initial={'full_name': currentprofile.full_name,
                                     'phone_number':
@@ -83,5 +83,3 @@ def checkout(request):
         order_form = OrderForm()
 
     return render(request, "checkout.html", {"order_form": order_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
-
-

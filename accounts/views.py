@@ -14,11 +14,6 @@ from checkout.models import Order, OrderLineItem
 # Create your views here.
 
 
-def index(request):
-    """Return the index.html file"""
-    return render(request,  'index.html')
-
-
 @login_required
 def logout(request):
     """Log the user out"""
@@ -121,7 +116,7 @@ def register(request):
 @login_required(login_url=reverse_lazy("login"))
 def edit_profile(request):
     """
-    view to handle the form for users to enter/edit their profile information
+    View to handle the form for a user to enter/edit their profile details
     """
     # retrieves the current user
     user_id = request.user.pk
@@ -178,8 +173,8 @@ def edit_profile(request):
 
 def delete_profile(request):
     """
-    This view renders the deleteprofile page
-    where the user must confirm that they wish to delete their user/profile
+    This view renders the page which enables users to
+    delete their user/profile
     """
     # requests the current user
     user = request.user
