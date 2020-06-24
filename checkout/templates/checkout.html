@@ -32,6 +32,13 @@
         <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
     </div>
 </div>
+{% if messages %}
+    <div>
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
 
 <form role="form" method="post" id="payment-form" class="user" action="{% url 'checkout' %}">
     <legend>Payment Details</legend>
