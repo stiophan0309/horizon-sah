@@ -36,7 +36,7 @@ def checkout(request):
                                     'county': currentprofile.county,
                                     'user': user_id})
     else:
-        form = OrderForm
+        order_form = OrderForm
     if request.method == "POST":
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)

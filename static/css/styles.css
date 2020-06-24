@@ -210,6 +210,17 @@ box-shadow: 3px 3px 10px 4px rgba(0,100,83,1);
     margin: 0 auto;
     background: #02c39a;
 }
+.total {
+    text-align: right;
+    padding: 10px;
+    border-top: 1px solid #05668d;
+}
+.order-item {
+    padding: 10px;
+}
+.checkout {
+    padding-top: 100px;
+}
 
 .text-area {
     background: #f0f3bd;
