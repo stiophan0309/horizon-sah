@@ -17,8 +17,9 @@ class Profile(models.Model):
     postcode = models.CharField(max_length=20, blank=True)
     town_or_city = models.CharField(max_length=40, blank=False)
     street_address1 = models.CharField(max_length=40, blank=False)
-    street_address2 = models.CharField(max_length=40, blank=False)
-    county = models.CharField(max_length=40, blank=False)
+    street_address2 = models.CharField(max_length=40, blank=True)
+    county = models.CharField(max_length=40, blank=True)
 
     def __unicode__(self):
         return self.user.username
+
