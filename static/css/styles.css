@@ -55,7 +55,7 @@ nav {
 /* Home Page styles */
 #index, #about {
     min-height: 100vh;
-    min-width: 100vw;
+    min-width: 99vw;
     overflow: hidden;
 }
 #header {
