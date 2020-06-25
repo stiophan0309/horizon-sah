@@ -2,9 +2,15 @@
 {% load bootstrap_tags %}
 {% block content %}
 <h2>Edit your profile details below:</h2>
-<div class="container">
-   <div class="row">
-      <div class="col-xs-12 col-sm-8 col-md-6">
+<div class="container-fluid checkout">
+    <div class="row panel">
+        <div class="col-sm-12">
+            <h1 class="section-title">Horizon</h1>
+            <h3 class="section-subtitle">User Profile Update</h3>
+        </div>
+    </div>
+   <div class="row panel">
+      <div class="col-xs-12 col-sm-8 col-md-6 mx-auto">
          <form role="form" action="" method="post">
             {% csrf_token %}
             {{ base_form | as_bootstrap }}
