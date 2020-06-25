@@ -198,6 +198,32 @@ box-shadow: 3px 3px 10px 4px rgba(0,100,83,1);
     border-top: 2px solid #028090;
     border-bottom: 2px solid #028090;
 }
+.modal-body h3 {
+    padding-top: 10px;
+}
+.input-group {
+    padding: 5px;
+}
+.input-group-btn {
+    padding: 0;
+}
+#qty {
+    margin-right: 5px;
+}
+.btn-add {
+    background-color: #00a896;
+    border-color: #f0f3bd;
+    color: #f0f3bd;
+}
+.btn-close {
+    background-color: #05668d;
+    border-color: #f0f3bd;
+    color: #f0f3bd;
+}
+
+
+
+
 
 .user {
     margin: auto;

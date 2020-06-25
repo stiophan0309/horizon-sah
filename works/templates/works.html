@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
 {% load bootstrap_tags %}
+{% block page_title %}Gallery & Shop{% endblock %}
 
 {% block content %}
 <div class="container-fluid outer">
@@ -56,10 +57,10 @@
                             <form method="post" action="{% url 'add_to_cart' work.id %}">
                             {% csrf_token %}
                                 <div class="input-group">
-                                    <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                                    <input id="qty" name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Qty">
                                     <span class="input-group-btn">
-                                        <button class="btn btn-success" type="submit">Add</button>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button class="btn btn-add" type="submit">Add</button>
+                                        <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
                                     </span>
                                 </div>
                             </form>
