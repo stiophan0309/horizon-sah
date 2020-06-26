@@ -8,7 +8,7 @@
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto admin inner">
             <h1 class="section-title">Horizon</h1>
             <h3 class="section-subtitle">User Login Page</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti molestiae excepturi perferendis doloribus ipsa consequuntur repudiandae distinctio similique, alias repellat deserunt, ratione illum nostrum recusandae vel ipsam, deleniti non praesentium?</p>
+            <p>Please enter your login credentials below.  If you have forgotten your password you car reset it using the Password Reset link below.</p>
 
         </div>
     </div>
@@ -19,7 +19,7 @@
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto inner">
                 <form class="user" method="POST">
                 {% csrf_token %} {{ login_form | as_bootstrap }}
-                    <button type="submit" class="btn btn-secondary">Login</button>
+                    <button type="submit" class="btn btn-search">Login</button>
                     <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
                 </form>       
         </div>
