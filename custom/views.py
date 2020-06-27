@@ -10,7 +10,7 @@ def create_custom(request):
 
 @login_required()
 def custom_form(request):
-    if request.method=="POST":
+    if request.method == "POST":
         form = CustomForm(request.POST)
         if form.is_valid():
             form.save()
@@ -21,7 +21,7 @@ def custom_form(request):
 
     return render(request, "custom_form.html", {'form': form})
 
-
+@login_required()
 def request_confirmation(request):
     """ Confirmation message """
     return render(request, 'confirmation.html')
