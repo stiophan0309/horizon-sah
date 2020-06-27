@@ -10,6 +10,9 @@ from django.template.context_processors import csrf
 from django.db import IntegrityError
 from .models import Profile
 from checkout.models import Order, OrderLineItem
+from custom.models import Custom
+
+
 
 # Create your views here.
 
@@ -190,7 +193,12 @@ def delete_profile(request):
 
 def orders(request):
     """A view that displays the orders page"""
-    orders = Order.objects.all().order_by('date')
-    order_line_items = OrderLineItem.objects.all().order_by('-order')
+    orders = Order.objects.all()
+    order_line_items = OrderLineItem.objects.all().order_by('-order_id')
     return render(request, "orders.html",
                   {'orders': orders, 'order_line_items': order_line_items})
+
+def custom_orders(request):
+    all_objects = Custom.objects.all()
+    context = {'all_objects': all_objects}
+    return render(request, 'orders.html', context)

@@ -2,19 +2,22 @@
 {% load bootstrap_tags %}
 {% block page_title %}{{user.username}}'s Orders{% endblock %}
 {% block content %}
-<h2>Order History</h2>
-<div class="row">
-   <div class="boldtext text-primary col-xs-2 col-sm-2 col-md-2">Date</div>
-   <div class="boldtext text-primary col-xs-5 col-sm-4 col-md-3">Product</div>
-   <div class="boldtext text-primary col-xs-2 col-sm-2 col-md-2">Quantity</div>
+<div class="container-fluid checkout">
+<div>XX
+
+
+    {% for order_line_item in order_line_items %}
+        <p>{{ order_line_items }}</p>
+        <p class="text-white">{{ order_line_item.order}}</p>
+        <p class="text-white">{{ order_line_item.work}}</p>
+        <p class="text-white">{{ order_line_item.quantity}}</p>
+    {% endfor %}
+    <br> <br> <br>
+    <p>{{ orders }}</p>
+    
+ </div>
+
 </div>
-{% for OrderLineItem in order_line_items %}
-{% if OrderLineItem.order.user == user %}
-<div class="row row-flex display panel panel-default">
-   <div class="col-xs-2 col-sm-2 col-md-2">{{ OrderLineItem.order }}</div>
-   <div class="col-xs-5 col-sm-4 col-md-3">{{ OrderLineItem.work }}</div>
-   <div class="col-xs-2 col-sm-2 col-md-2">{{ OrderLineItem.quantity }}</div>
-</div>
-{% endif %}
-{% endfor %}
+
+
 {% endblock %}
