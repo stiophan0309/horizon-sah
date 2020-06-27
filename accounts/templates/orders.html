@@ -11,9 +11,20 @@
         <p class="text-white">{{ order_line_item.order}}</p>
         <p class="text-white">{{ order_line_item.work}}</p>
         <p class="text-white">{{ order_line_item.quantity}}</p>
+        <p class="text-white">{{ order_line_item.work.title}}</p>
+        <p class="text-white">{{ order_line_item.order.date}}</p>
+        <p class="text-white">{{ order_line_item.order.}}</p>
+        <img src="/{{ order_line_item.work.image }}">
     {% endfor %}
     <br> <br> <br>
-    <p>{{ orders }}</p>
+    {% for order in orders %}
+    <ul>
+    <li>{{ orders }}</li>
+    <li>{{ order.date }}</li>
+    <li>{{ order.full_name }}</li>
+    <li>{{ order.postcode }}</li>
+    </ul>
+    {% endfor %}
     
  </div>
 
