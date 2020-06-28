@@ -33,6 +33,33 @@
             <a href="{% url 'delete_profile' %}"  class="btn btn-danger">Delete profile</a>
         </div>
     </div>
+    <div class="row">
+    
+                {% for order in orders %}
+            {% for order_line_item in order_line_items %}
+                <!-- <p>{{ order_line_items }}</p> -->
+                <p>Order ID: <span class="text-white">{{ order_line_item.order}}</span></p>
+                <p>Order Date: <span class="text-white">{{ order.date}}</span></p>
+                <p>Cat. No. <span class="text-white">{{ order_line_item.work}}</span></p>
+                <p>Quantity: <span class="text-white">{{ order_line_item.quantity}}</span></p>
+                <p>Title: <span class="text-white">{{ order_line_item.work.title}}</span></p>
+                <p>Unit Price: <span class="text-white">{{ order_line_item.work.price}}</span></p>
+                <img class="img-fluid img-thumbnail" src="{{ MEDIA_URL}}{{ order_line_item.work.image }}" alt="{{ order_line_item.work.title }}">
+            
+            <br> <br> <br>
+
+            <ul>
+            <li>{{ order.order }}</li>
+            <li>{{ order.date }}</li>
+            <li>{{ order.full_name }}</li>
+            <li>{{ order.total}}</li>
+            </ul>
+            {% endfor %}
+            {% endfor %}
+
+        </div> 
+    
+    </div>
 </div>
 
 {% endblock %}

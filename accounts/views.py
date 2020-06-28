@@ -89,6 +89,7 @@ def profile(request):
         # renders profile.html without Profile information,
         # typically because user has not yet filled in
         # their profile information
+
         return render(request, 'profile.html')
 
 
@@ -191,6 +192,7 @@ def delete_profile(request):
     return render(request, "deleteprofile.html", context)
 
 
+@login_required()
 def orders(request):
     """A view that displays the orders page"""
     orders = Order.objects.all().order_by('-date')
