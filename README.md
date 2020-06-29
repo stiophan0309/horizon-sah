@@ -219,7 +219,172 @@ Databases
 
 # Planning & Testing
 
+#### Planning:
+
+Planning is an essential stage in planning any project and Web Development is no exception, especially when using new technologies and tools.  The following details how Horizon was
+planned and developed.
+
+I started by using wireframes which I constructed on Balsamiq and using Bootstrap I was quicky able to draft temnplates for the basic look of the site.  Thanks to this and the Django templating language 
+I was able to re-use code throughout the site.
+
+#### Feature Testing:
+
+#### Gallery / Shop
+
+Planning: Having done a gallery type project before I was able to re-use and improve upon the methodology I used there, however I devided upon a simpler layout as I wanted to combine the gallery and
+the shop into one, so decided upon displaying each image with minimal info then utilising Bootstrap Modals for a detailed view with option to buy.
+
+Implementation: Once I had setup the product model and migrate the table into the database, I could then create the view within the Works app that sends a GET request to the database and returns all the works via the works variable, making this available to the front end via the context in the return statement meant that I could loop through each work from the database and render the details using Django's template language in the HTML including the Modal enabling me to re-use the modal code.
+
+Testing: To test that this app worked, I navigated to the 'works.html' page using the link on the Navbar and looked to see if all the works in the database had been rendered into the HTML template, and tested clicking on each image to open the modal to make sure it displayed the correct info for each work.  I also resized the browser and used Google's tools so emulate different devices to test the resposiveness of the layout.
+
+Outcome: The works displayed correctly, all the modals worked and correctly displayed the relevant info and the page was responsive.
+
+Verdict:  The Works app passed testing based on the above criteria.
+
+#### Cart
+
+Planning:  Here I used the material from the eCommerce mini-project as the main basis for the Cart app bit and added my own styling.
+
+Implementation:  I made a context.py file first and included it in the Context processors in settings.py to tell the app what info should need as the Cart is stored in session,
+not in the database.  I then wrote the view for adding, editing and deleting from the Cart.
+
+Testing: To test the app, I navigated the to the gallery and selected a work and from the modal, selected 'add to cart'.  I then went to the cart app and tested amending the quantity and removing it from the cart.
+
+Outcome: The work added correctly to the cart and the icon in the Navbar correctly updated.  The app correctly also amended and removed items from the cart.
+
+Verdict: The Cart app passed testing based on the above criteria.
+
+#### Checkout
+
+Planning: Again I used the material from the eCommerce mini-project as a basis for the Checkout app as I felt it would based on tried ans tested knowledge which should work according to users' expectations.
+
+Implementation:  I first construted the models (Order and OrderLineItem) and migrated them to the database.  Then I created the forms and view and setup the validation required by STRIPE in the stripe.js file to handle the creation of the stripe_id, which is required in order to process a payment with the API.
+
+Testing: I added a selection of products to the cart and navigated to the checkout.html page, I then entered dummy contact information and used stripe test card details to attempt to create a purchase, I also tested this feature with incorrect payment information in order to check that the error messages were visible.  I also checked the Stripe website to see if the payment was processed.
+
+Outcome: Payment was processed successfully and showed on the Stripe website and error messages appeared visiblbly and correctly when using invalid credentials.
+
+Verdict: The Checkout app passed testing based on the above criteria.
+
+#### Profile
+
+Planning: I wanted to develop the Profile page covered in the eCommerce mini-project as one of my 2 additional apps for the project.
+
+Implementation:  
+
+Outcome: 
+
+Verdict:
+
+#### Custom 
+
+Planning: As well as selling existing works any artist will offer a service for commissions or custom works and I wanted Horizon to be no exception.  
+
+Implementation:  The object was to capture information based on the users requirements so I set up a model based on criteria required by the artist including an image upload function.  I then created the view and form and rendered the template. The feature functions like a Contact Form so the artist will contact the user to discuss final requirements and payment.
+
+Testing:  Testing was by navigation to the custom.html which presents the user with an info page and option to request a Custom Work.  When selected the form was filled out to see if user is presented with a success or error message.
+
+Outcome: The form successfully sent and was presented with a success popup then presented with an information page on the next steps in the process.
+
+Verdict: The Custom app passed testing based on the above criteria
+
+#### Search Bar
+
+Planning: 
+
+Implementation:
+
+Testing:
+
+Outcome: 
+
+Verdict:
+
+#### User Authentication
+
+Planning:  I wanted users to be able to login/logout of their account so this feature was very important as is commonplace on any e-commerce site. Using the django.auth settings this feature would be heavily supported by the existing functionality that comes already pre-packed with Django.
+
+Implementation: The user table exists in Django as standard, so all that was needed to do was construct the forms and views in order to allow the user to register an account, login to their account and logout of their account.
+
+Testing: In order to test the User features I had to perform each view step by step, First I Created a user account and checked that the records had been added to the database, Then I attempted a login to the website using those details, after that I logged out of the account using the logout view.
+
+Outcome: The 'ussr account I had created was visible in the database, and when I attempted to login to the account I was redirected to the profile page which displayed personal info. Finally logging out cleared my session and meant that I would have to log back into the user account to return to the profile page.
+
+Verdict: The Checkout app passed testing based on the above criteria.
+
+
+
 # Deployment
+
+To run a local copy of Horizon, please do the following:
+
+### Pre-requisites
+
+An IDE (interactive development environment) e.g. Visual Studio Code.
+You MUST have the following installed locally:
+
+* PIP
+* Python3
+* Git
+
+You will need to create accounts with the following online services in order to run this project:
+
+* Stripe
+
+Instructions:
+
+1: Clone the Horizon repository by either downloading from here or type the following command into your terminal.
+git clone https://github.com/stiophan0309/horizon-sah
+2: Navigate to this folder in your terminal.
+3: Enter the following command into your terminal.
+python3 -m .venv venv
+4: Initialize the environment by using the following command.
+.venv\bin\activate
+5: Install the requirements and dependancies from the requirements.txt file
+pip3 -r requirements.txt
+6: Within your IDE now create a file where you can store your secret information for the app, I used vscodes settings.json however you can just create an env.py file if you wish.
+{
+    "python.pythonPath": "/usr/local/bin/python3",
+    "python.terminal.activateEnvironment": true,
+    "python.linting.enabled": true,
+    "files.autoSave": "onFocusChange",
+    "files.useExperimentalFileWatcher": true,
+    "terminal.integrated.env.osx": {
+      "SECRET_KEY": "<your_secret_key_here>",
+      "DEV": "1",
+      "STRIPE_PUBLISHABLE": "<your_stripe_publishable_key_here>",
+      "STRIPE_SECRET": "<your_stripe_secret_key_here>",
+      "DATABASE_URL": "<your_database_url_here>",
+}
+7: Enter the following command into the terminal to migrate models into database.
+python3 manage.py migrate
+8: Then you need to Create a 'superuser' for the project using the terminal, enter the following command.
+python3 manage.py createsuperuser
+9: The app can now be ran locally using the following command.
+python3 manage.py runserver
+
+Deploying Horizon to Heroku:
+
+1: Create a requirements.txt file using the following command.
+pip3 freeze > requirements.txt
+2: Create a procfile with the following command.
+echo web: python3 app.py > Procfile
+3: Push these newly created files to your repository.
+4: Create a new app for this project on the Heroku Dashboard.
+5: Select your deployment method by clicking on the deployment method button and select GitHub.
+6: On the dashboard, set the following config variables:
+Key	Value
+DATABASE_URL	<your_database_url>
+SECRET_KEY	<your_secret_key>
+SENDGRID_API_KEY	<your_sendgrid_api_key>
+STRIPE_PUBLISHABLE	<your_stripe_publishable_key>
+STRIPE_SECRET	<your_stripe_secret_key>
+7: Click the deploy button on the heroku Dashboard.
+8: Wait for the build to finish and click the view project link once it has!
+Congratulations, Horizon is now hosted on Heroku and is live!
+
+
 
 # Credits
 
