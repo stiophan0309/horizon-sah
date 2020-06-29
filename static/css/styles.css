@@ -11,7 +11,7 @@ body {
     background-color: #028090;
 }
 .template {
-    padding: 120px 0px 50px 0px;
+    padding: 50px 0px 50px 0px;
 }
 .row {
     margin: 0px;
@@ -27,8 +27,11 @@ body {
     padding-top: 100px;
 }
 .main {
+    width: 80%;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 80px;
+    background:  #00a896;
+    padding: 20px;
 }
 /* Navbar styles */
 nav {
