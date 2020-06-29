@@ -284,3 +284,30 @@ box-shadow: 3px 3px 10px 4px rgba(0,100,83,1);
 .admin-links {
     text-align: center;
 }
+
+/* cart */
+.card-header, .card-footer {
+    background: #05668d;
+    color: #f0f3bd;
+}
+.card-body {
+    background: #f0f3bd;
+    color: #05668d;
+}
+.btn-checkout {
+    background: #028090;
+    border-color: #02c39a;
+    color: #f0f3bd;
+}
+.cart-adjust {
+    margin-top: 10px;
+    padding: 10px;
+}
+.cart-adjust form button {
+    margin-bottom: 10px;
+}
+#cart-qty {
+    width: 50%;
+    padding-left: 0;
+}
+

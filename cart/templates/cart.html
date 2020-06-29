@@ -4,63 +4,65 @@
 {% block page_title %}Shopping Cart{% endblock %}
 
 {% block content %}
-<div class="row">
-    
-    
-    <div class="card">
+<div class="container-fluid">
+    <div class="row">
+              
+        <div class="card">
 
-        <div class="card-header bg-dark text-light">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shipping Cart
-            <a href="{% url 'works' %}" class="btn btn-outline-info btn-sm pull-right">Continue shopping</a>
-            <div class="clearfix"></div>
-        </div>
-        {% for item in cart_items %}
-        <div class="card-body">
-        <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-3">
-                <img class="img-fluid" src="{{ MEDIA_URL}}{{item.work.image}}">
+            <div class="card-header">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shipping Cart
+                <div class="clearfix"></div>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-9">
-                <h3>{{ item.work.title }}</h3>
-                <p class="work-description">{{ item.work.description }}</p>
-                <p><strong>£{{ item.work.price }}</strong></p>
-            </div>
-        </div>
+            {% for item in cart_items %}
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <img class="img-fluid" src="{{ MEDIA_URL}}{{item.work.image}}">
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-9">
+                        <h3>{{ item.work.title }}</h3>
+                        <p class="work-description">{{ item.work.description }}</p>
+                        <p><strong>£{{ item.work.price }}</strong></p>
+                    </div>
+                </div>
 
-            <div class="col-4 col-sm-4 col-md-4">  
-                    <form method="post" action="{% url 'adjust_cart' item.id %}">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <label for="exampleInputAmount" class="sr-only">New Qty</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">Qty</div>
-                                <input name="quantity" type="number" min="0" max="999" class="form-control">
-                                <div class="input-group-addon">{{item.quantity}}</div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 cart-adjust">  
+                        <form method="post" action="{% url 'adjust_cart' item.id %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="exampleInputAmount" class="sr-only">New Qty</label>
+                                <div id="cart-qty" class="input-group">
+                                    <input name="quantity" type="number" min="0" max="999" class="form-control" placeholder="Quantity">
+                                </div>
                             </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Adjust Quantity</button>
-                    </form>
-                    <form method="post" action="{% url 'remove_from_cart' item.id %}">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Remove Items</button>
-                    </form>
+                            <button type="submit" class="btn btn-checkout"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Adjust Quantity</button>
+                        </form>
+                        <form method="post" action="{% url 'remove_from_cart' item.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-checkout"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Remove Items</button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
 
-        </div>
-
-        {% endfor %}
-        <div class="card-footer">
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-8"></div>
-                <div class="col-sm-12 col-md-6 col-lg-4 text-right">
-                    <p>Total price: <b>£{{ total }}</b></p>
-                    <a href="{% url 'checkout' %}" class="btn btn-success">Checkout</a>
+            {% endfor %}
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-8"></div>
+                    <div class="col-sm-12 col-md-6 col-lg-4 text-right">
+                    
+                        <p>Total price: <span class="text-white"><strong>£{{ total }}</strong></span></p>
+                        <a href="{% url 'works' %}" class="btn btn-checkout">Continue shopping</a>
+                        <a href="{% url 'checkout' %}" class="btn btn-checkout">Checkout</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    
+        </div>
+        
+    </div>
 </div>
 
 {% endblock %}

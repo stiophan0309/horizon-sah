@@ -387,5 +387,7 @@ Congratulations, Horizon is now hosted on Heroku and is live!
 
 # Credits
 
+Coolors.co
+
 # Disclaimer
 
