@@ -334,54 +334,53 @@ You will need to create accounts with the following online services in order to 
 
 Instructions:
 
-1: Clone the Horizon repository by either downloading from here or type the following command into your terminal.
-git clone https://github.com/stiophan0309/horizon-sah
-2: Navigate to this folder in your terminal.
-3: Enter the following command into your terminal.
-python3 -m .venv venv
-4: Initialize the environment by using the following command.
-.venv\bin\activate
-5: Install the requirements and dependancies from the requirements.txt file
-pip3 -r requirements.txt
-6: Within your IDE now create a file where you can store your secret information for the app, I used vscodes settings.json however you can just create an env.py file if you wish.
-{
-    "python.pythonPath": "/usr/local/bin/python3",
-    "python.terminal.activateEnvironment": true,
-    "python.linting.enabled": true,
-    "files.autoSave": "onFocusChange",
-    "files.useExperimentalFileWatcher": true,
-    "terminal.integrated.env.osx": {
-      "SECRET_KEY": "<your_secret_key_here>",
-      "DEV": "1",
-      "STRIPE_PUBLISHABLE": "<your_stripe_publishable_key_here>",
-      "STRIPE_SECRET": "<your_stripe_secret_key_here>",
-      "DATABASE_URL": "<your_database_url_here>",
-}
-7: Enter the following command into the terminal to migrate models into database.
-python3 manage.py migrate
-8: Then you need to Create a 'superuser' for the project using the terminal, enter the following command.
-python3 manage.py createsuperuser
-9: The app can now be ran locally using the following command.
-python3 manage.py runserver
+1. Clone the Horizon repository by either downloading from here or type the following command into your terminal:
+`git clone https://github.com/stiophan0309/horizon-sah`
+2. Navigate to this folder in your terminal.
+3. Enter the following command into your terminal:
+`python3 -m .venv venv`
+4. Initialize the environment by using the following command:
+`.venv\bin\activate`
+5. Install the requirements and dependancies from the requirements.txt file:
+`pip3 -r requirements.txt`
+6. Within your IDE now create a file where you can store your secret information for the app, I personally used an env.py file.
+
+```
+import os
+os.environ.setdefault("STRIPE_PUBLISHABLE", "your_stripe_publishable_key")
+os.environ.setdefault("STRIPE_SECRET", "your_stripe_secret_key")
+os.environ.setdefault("SECRET_KEY", "your_django_secret_key")
+
+```
+7. Enter the following command into the terminal to migrate models into database:
+`python3 manage.py migrate`
+8. Then you need to Create a 'superuser' for the project using the terminal, enter the following command:
+`python3 manage.py createsuperuser`
+9. The app can now be ran locally using the following command:
+`python3 manage.py runserver`
 
 Deploying Horizon to Heroku:
 
-1: Create a requirements.txt file using the following command.
-pip3 freeze > requirements.txt
-2: Create a procfile with the following command.
-echo web: python3 app.py > Procfile
-3: Push these newly created files to your repository.
-4: Create a new app for this project on the Heroku Dashboard.
-5: Select your deployment method by clicking on the deployment method button and select GitHub.
-6: On the dashboard, set the following config variables:
+1. Create a requirements.txt file using the following command:
+`pip3 freeze > requirements.txt`
+2. Create a procfile with the following command:
+`echo web: python3 app.py > Procfile`
+3. Push these newly created files to your repository.
+4. Create a new app for this project on the Heroku Dashboard.
+5. Select your deployment method by clicking on the deployment method button and select GitHub.
+6. On the dashboard, set the following config variables:
+
+```
 Key	Value
 DATABASE_URL	<your_database_url>
 SECRET_KEY	<your_secret_key>
-SENDGRID_API_KEY	<your_sendgrid_api_key>
 STRIPE_PUBLISHABLE	<your_stripe_publishable_key>
 STRIPE_SECRET	<your_stripe_secret_key>
-7: Click the deploy button on the heroku Dashboard.
-8: Wait for the build to finish and click the view project link once it has!
+```
+
+7. Click the deploy button on the heroku Dashboard.
+8. Wait for the build to finish and click the view project link once it has!
+
 Congratulations, Horizon is now hosted on Heroku and is live!
 
 
