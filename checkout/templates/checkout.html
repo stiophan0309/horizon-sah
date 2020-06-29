@@ -15,59 +15,70 @@
 
 {% block content %}
 <div class="container-fluid checkout">
-<div class="row row-flex panel">
-        <div class="col-sm-12">
-            <p class="section-subtitle">Order Summary</p>
-        </div>
-    {% for item in cart_items %}
-        <div class="col-sm-12 col-md-6 order-item">
-            <div class="work" ><img class="img-thumbnail thumbX" src="{{ MEDIA_URL}}{{item.work.image}}"></div>
-        </div>
-        <div class="col-sm-12 col-md-6">        
-            <div class="caption">
-                <h3>Item: {{ item.work.title }}</h3>
-                <p>Cat. No: {{ item.work.name }}</p>
-                <p class="product-description">Description: {{ item.work.description }}</p>
-                <p>Qty: {{ item.quantity }}</p>
-                <p>Price: {{ item.work.price }}</p>
+    <div class="row panel">
+            <div class="col-sm-12">
+                <p class="section-subtitle">Order Summary</p>
             </div>
-        </div>
-    {% endfor %}
-</div>
-<div class="row row-flex panel total">
-    <div class="col-sm-12 panel">
-        <h5>Total: <span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</h5>
-    </div>
-</div>
-{% if messages %}
-    <div>
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-    </div>
-{% endif %}
+            {% for item in cart_items %}
+            <div class="col-sm-12 col-md-6 order-item">
+                <div class="work" ><img class="img-thumbnail thumbX" src="{{ MEDIA_URL}}{{item.work.image}}"></div>
+            </div>
+            <div class="col-sm-12 col-md-6">        
+                <div class="caption">
+                    <h3>Item: {{ item.work.title }}</h3>
+                    <p>Cat. No: {{ item.work.name }}</p>
+                    <p class="product-description">Description: {{ item.work.description }}</p>
+                    <p>Qty: {{ item.quantity }}</p>
+                    <p>Price: {{ item.work.price }}</p>
+                </div>
+            </div>
+            {% endfor %}
 
-<div class="row panel">
+        <div class="col-sm-12 total">
+            <h5>Total: <span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</h5>
+            <a id="show-shipping" href="#shipping" class="btn btn-checkout">Continue</a>
+        </div>
+    </div>
+
+<div id="shipping" class="row panel">
     <div class="col-sm-12">
+
         <form role="form" method="post" id="payment-form" class="user" action="{% url 'checkout' %}">
-        <p class="section-subtitle">Shipping & Payment</p>
+            <p class="section-subtitle">Shipping Details</p>
 
-        <div class="form-group col-sm-12 col-md-9 mx-auto">
-        {{ order_form | as_bootstrap }}
-        </div>
+            <div id="order" class="form-group col-sm-12 col-md-9 mx-auto">
+            {{ order_form | as_bootstrap }}
+            </div>
 
-        <div class="form-group col-sm-12 col-md-9 mx-auto">
-        {{ payment_form | as_bootstrap }}
-        </div>
+            <div class="col-sm-12 total">
+            <a id="show-payment" href="#payment" class="btn btn-checkout">Continue</a>
+            </div>
 
-        <div id="credit-card-errors">
-        <div class="alert-message block-message error" id="stripe-error-message"></div>
-        </div>
-        
-        {% csrf_token %}
-        <div class="form-group col-sm-12 col-md-9 mx-auto">
-        <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
-        </div>
+            <div id="payment">
+                <p class="section-subtitle">Payment Details</p>
+
+                {% if messages %}
+                    <div>
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <div class="form-group col-sm-12 col-md-9 mx-auto">
+                    {{ payment_form | as_bootstrap }}
+
+                    <div id="credit-card-errors">
+                        <div class="alert-message block-message error" id="stripe-error-message"></div>
+                    </div>
+
+                </div>
+                
+                {% csrf_token %}
+                <div class="form-group col-sm-12 col-md-9 mx-auto">
+                <input class=" btn btn-checkout" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+                </div>
+            </div>
         </form>
     
     </div>

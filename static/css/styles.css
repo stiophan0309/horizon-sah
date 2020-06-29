@@ -236,22 +236,6 @@ box-shadow: 3px 3px 10px 4px rgba(0,100,83,1);
     margin: 20px auto;
     background: #02c39a;
 }
-.total {
-    text-align: right;
-    padding: 10px;
-    border-top: 1px solid #05668d;
-}
-.order-item {
-    padding: 10px;
-}
-.checkout {
-    padding: 150px 0px 50px 0px;
-}
-#credit-card-errors {
-    display: none;
-    background: #fff;
-    color: #f00;
-}
 
 .text-area {
     background: #f0f3bd;
@@ -285,7 +269,7 @@ box-shadow: 3px 3px 10px 4px rgba(0,100,83,1);
     text-align: center;
 }
 
-/* cart */
+
 .card-header, .card-footer {
     background: #05668d;
     color: #f0f3bd;
@@ -311,3 +295,31 @@ box-shadow: 3px 3px 10px 4px rgba(0,100,83,1);
     padding-left: 0;
 }
 
+/* Checkout */
+
+.order-item {
+    padding: 20px;
+}
+.checkout {
+    padding: 150px 0px 300px 0px;
+}
+#credit-card-errors {
+    display: none;
+    background: #fff;
+    color: #f00;
+    padding: 10px;
+    border: 2px solid #f00;
+}
+#shipping {
+    display: none;
+    margin-top: 100px;
+    padding: 20px;
+}
+#payment {
+    display: none;
+}
+.total {
+    text-align: right;
+    padding: 10px;
+    border-top: 1px solid #05668d;
+}
