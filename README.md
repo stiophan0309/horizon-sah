@@ -83,11 +83,15 @@ which I thought gave a nice rounded contrast to reflect the shapes on the landsc
 
 ### Icons
 
+I have used icons from Font Awesome throughout the site which give a nice clean consistent appearance.
+
 ### Colours
 
 The following colours have been utilised throughout the site:
 
 ![color scheme](wireframes/colour-scheme.png)
+
+I chose these colours as I wanted to reflect land, sea, sky and sunshine
 
 ### Images
 
@@ -109,53 +113,59 @@ The following is a flowchart of the login/registration process:
 
 ### Database Design
 
-The following datatypes are used in the database:
+* The development database was sqlite3 which comes with Django
+* The production database in PostgresSQL and is hosted by Heroku.
 
-* ObjectID
-* String
-* Boolean
-* Number
+### Data Models
 
-Works Collection:
+
+The Works Model:
+
+The Works model within the Works app is used for the artworks in the gallery/shop:
 
 Name  | Database Name | Type
 ----- | ------------- | ----
-Work ID | _id | ObjectId
-Title   | title | String
-Category | category | String
-Image | image | String
-Surface | surface | String
-Media | media | String
-H Size  | h_size | Number
-V Size | v_size | Number
-Commission | commission | Boolean
-Price | price | Number
+Catalogue ID | name | CharField
+Title   | title | CharField
+Description | category | CharField
+Media | media | CharField
+Date | date | DateField
+Image | image | CharField
+Price | price | Decimal
 
-Users Collection:
+The Order Model:
 
-Name | Database Name | Type
----- | ------------- | ----
-User ID | _id | ObjectId
-Name | name | String
-Password | password | String
-Email | email | String
-
-Purchases Collection:
+The Order model within the Checkout app holds the following data for the orders in the Gallery/Shop:
 
 Name | Database Name | Type
 ---- | ------------- | ----
-Purchase ID | _id | ObjectId
-Name | name | String
-Email | email | String
-Date | date | String
-Total | total | number
+Name | full_name | CharField
+Phone Number | phone_number | CharField
+Email | email | EmailField
+Country | CharField
+Postcode | CharField
+Town / City | CharField
+Street Address 1 | street_address1 | CharField
+Street Address | street_address1 | CharField
+County | county | CharField
+Date | date | DateField
 
+The Order Line Item Model:
 
+The OrderLineItem model within the checkout app holds the following data for the OrderLineItem(s) in the Gallery/Shop:
 
+Name | Database Name | Type
+---- | ------------- | ----
 
-
+Order | order | ForeignKey
+Work | work | ForeignKey
+Quantity | quantity | IntegerField
 
 # Features
+
+### Features That Have Been Developed
+
+### Features That Will Be Developed In The Future
 
 # Technologies Used
 
