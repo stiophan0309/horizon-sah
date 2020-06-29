@@ -381,8 +381,8 @@ STRIPE_PUBLISHABLE	<your_stripe_publishable_key>
 STRIPE_SECRET	<your_stripe_secret_key>
 ```
 
-7. Click the deploy button on the heroku Dashboard.
-8. Wait for the build to finish and click the view project link once it has!
+7. Click the 'deploy' button on the Heroku dashboard.
+8. Wait for the build to complete and click the 'view project' link once it has.
 
 Congratulations, Horizon is now hosted on Heroku and is live!
 
@@ -390,7 +390,19 @@ Congratulations, Horizon is now hosted on Heroku and is live!
 
 # Credits
 
-Coolors.co
+Colour scheme from:
+
+* Coolors.co
+
+Assistance with Django from:
+
+* Stack Overflow
+* Code Institute students on Slack
+* Codepen
+
+All images are property of the site owner.
 
 # Disclaimer
+
+The content on this site is not for commercial use.
 
