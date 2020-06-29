@@ -142,9 +142,9 @@ Name | Database Name | Type
 Name | full_name | CharField
 Phone Number | phone_number | CharField
 Email | email | EmailField
-Country | CharField
-Postcode | CharField
-Town / City | CharField
+Country | country | CharField
+Postcode | postcode | CharField
+Town / City | town_or_city | CharField
 Street Address 1 | street_address1 | CharField
 Street Address | street_address1 | CharField
 County | county | CharField
@@ -156,7 +156,6 @@ The OrderLineItem model within the checkout app holds the following data for the
 
 Name | Database Name | Type
 ---- | ------------- | ----
-
 Order | order | ForeignKey
 Work | work | ForeignKey
 Quantity | quantity | IntegerField
@@ -165,7 +164,64 @@ Quantity | quantity | IntegerField
 
 ### Features That Have Been Developed
 
+* Gallery and Shop using Bootstrap Modals which gives users information about the work and enables to add quantities to the cart
+
+* Ability to create an account, login view orders and male Purchases
+
+* Ability to update and delete User Profile
+
+* Search Bar users can search through the shop using key words
+
+* Shopping Cart where users can amend or delete items or adjust quantities
+
+* Use of Stripe API where users can pay for their cart via the Checkout app securely
+
+* Contact Form where users can give feedback or ask queries
+
 ### Features That Will Be Developed In The Future
 
+* Carousel view as an alterate view of the Gallery/Shop
+
+* Intergrate the Custom section with the Shopping Cart
+
+* Progress indicator for Custom requests showingb their Progress
+
+
 # Technologies Used
+
+Languages
+
+* HTML
+* CSS 
+* JavaScript
+* Python
+
+Tools & Libraries
+
+* jQuery
+* Django
+* Git 
+* Bootstrap
+* Font-Awewsome
+* WhiteNoise
+* Gunicorn
+* PIP 
+* Psycopg2
+* Stripe
+* Toast
+* GitPod
+* Heroku
+
+Databases
+
+* PostgresSQL - production
+* SQLite3 - development
+
+# Planning & Testing
+
+# Deployment
+
+# Credits
+
+# Disclaimer
 
