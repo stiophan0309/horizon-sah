@@ -3,32 +3,38 @@
 {% load bootstrap_tags %}
 {% block page_title %}{{user.username}}'s Orders{% endblock %}
 {% block content %}
-<div class="container-fluid checkout">
-    <div class="row">
-        <div class="col-sm-12 panel">
-            {% for order in orders %}
-            {% for order_line_item in order_line_items %}
-                <!-- <p>{{ order_line_items }}</p> -->
-                <p>Order ID: <span class="text-white">{{ order_line_item.order}}</span></p>
-                <p>Order Date: <span class="text-white">{{ order.date}}</span></p>
+<div class="container-fluid spacer">
+
+    <div class="row title-block">
+        <div class="col-sm-12">
+            <h1 class="section-title">Horizon</h1>
+            <h3 class="section-subtitle">Order History</h3>
+    </div>
+
+    <div class="row main-block">    
+        {% for order in orders %}
+        {% for order_line_item in order_line_items %}
+        <div class="row order-display">
+            <div class="col-sm-12">
+            <p>Order ID: <span class="text-white">{{ order_line_item.order}}</span></p>
+            <p>Order Date: <span class="text-white">{{ order.date}}</span></p>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-6">
+                <img class="img-fluid thumb thumbX" src="{{ MEDIA_URL}}{{ order_line_item.work.image }}" alt="{{ order_line_item.work.title }}">
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-6">
+                <h6>Item Details:</h6>
                 <p>Cat. No. <span class="text-white">{{ order_line_item.work}}</span></p>
                 <p>Quantity: <span class="text-white">{{ order_line_item.quantity}}</span></p>
                 <p>Title: <span class="text-white">{{ order_line_item.work.title}}</span></p>
-                <p>Unit Price: <span class="text-white">{{ order_line_item.work.price}}</span></p>
-                <img class="img-fluid img-thumbnail" src="{{ MEDIA_URL}}{{ order_line_item.work.image }}" alt="{{ order_line_item.work.title }}">
-            
-            <br> <br> <br>
+                <p>Price: <span class="text-white">{{ order_line_item.work.price}}</span></p>
+            </div>
 
-            <ul>
-            <li>{{ order.order }}</li>
-            <li>{{ order.date }}</li>
-            <li>{{ order.full_name }}</li>
-            <li>{{ order.total}}</li>
-            </ul>
-            {% endfor %}
-            {% endfor %}
+        </div> 
+        {% endfor %}
+        {% endfor %}
 
-        </div>        
+               
     </div>
 </div>
 
