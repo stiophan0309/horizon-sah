@@ -78,6 +78,9 @@ the combination of land, sea and sky.  I believe this is a palette that users wi
 
 ### Fonts
 
+I chose 2 fonts from Google Fonts fot the design, Julius Sans for titles and subtitles which I though gave a tall, but not over imposing feel and Poppins for all other text,
+which I thought gave a nice rounded contrast to reflect the shapes on the landscape.
+
 ### Icons
 
 ### Colours
