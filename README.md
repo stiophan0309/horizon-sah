@@ -186,6 +186,8 @@ Quantity | quantity | IntegerField
 
 * Progress indicator for Custom requests showingb their Progress
 
+* Search bar to search by greater criteria that just title
+
 
 # Technologies Used
 
@@ -291,15 +293,16 @@ Verdict: The Custom app passed testing based on the above criteria
 
 #### Search Bar
 
-Planning: 
+Planning: I wanted the Search bar to ba available throughout the site so users can mnake a quick search if they have some idea of what they want to look for, I thought placing it
+on the Navbar was the best fit.
 
-Implementation:
+Implementation:  I utilising both code from the e-commerce mini-project (backend) originally filtering by name but changed this to by title, and Bootstrap (frontend) to implement the Search bar.
 
-Testing:
+Testing:  I tested by searching for different key words in different works
 
-Outcome: 
+Outcome: The search displayed results based on the keywords I searched for.
 
-Verdict:
+Verdict: The Search app passed testing based on the above criteria.
 
 #### User Authentication
 
