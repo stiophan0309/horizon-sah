@@ -177,8 +177,8 @@ def edit_profile(request):
 
 def delete_profile(request):
     """
-    This view renders the page which enables users to
-    delete their user/profile
+    This view renders the deleteprofile page
+    where the user must confirm that they wish to delete their user/profile
     """
     # requests the current user
     user = request.user

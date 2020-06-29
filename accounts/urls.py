@@ -9,7 +9,7 @@ urlpatterns = [
     url(r'^register/', register, name="register"),
     url(r'^profile/', profile, name="profile"),
     url(r'^orders/$', orders, name='orders'),
-    url(r'^$', edit_profile, name='edit_profile'),
-    url(r'^profile/delete/$', delete_profile, name='delete_profile'),
+    url(r'^edit/$', edit_profile, name='edit_profile'),
+    url(r'^delete/$', delete_profile, name='delete_profile'),
     url(r'^password-reset/', include(url_reset))
 ]

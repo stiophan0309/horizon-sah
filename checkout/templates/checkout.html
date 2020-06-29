@@ -40,50 +40,50 @@
         </div>
     </div>
 
-<div id="shipping" class="row panel">
-    <div class="col-sm-12">
+    <div id="shipping" class="row panel">
+        <div class="col-sm-12">
 
-        <form role="form" method="post" id="payment-form" class="user" action="{% url 'checkout' %}">
-            <p class="section-subtitle">Shipping Details</p>
+            <form role="form" method="post" id="payment-form" class="user" action="{% url 'checkout' %}">
+                <p class="section-subtitle">Shipping Details</p>
 
-            <div id="order" class="form-group col-sm-12 col-md-9 mx-auto">
-            {{ order_form | as_bootstrap }}
-            </div>
-
-            <div class="col-sm-12 total">
-            <a id="show-payment" href="#payment" class="btn btn-checkout">Continue</a>
-            </div>
-
-            <div id="payment">
-                <p class="section-subtitle">Payment Details</p>
-
-                {% if messages %}
-                    <div>
-                        {% for message in messages %}
-                            {{ message }}
-                        {% endfor %}
-                    </div>
-                {% endif %}
-
-                <div class="form-group col-sm-12 col-md-9 mx-auto">
-                    {{ payment_form | as_bootstrap }}
-
-                    <div id="credit-card-errors">
-                        <div class="alert-message block-message error" id="stripe-error-message"></div>
-                    </div>
-
+                <div id="order" class="form-group col-sm-12 col-md-9 mx-auto">
+                {{ order_form | as_bootstrap }}
                 </div>
-                
-                {% csrf_token %}
-                <div class="form-group col-sm-12 col-md-9 mx-auto">
-                <input class=" btn btn-checkout" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+
+                <div class="col-sm-12 total">
+                <a id="show-payment" href="#payment" class="btn btn-checkout">Continue</a>
                 </div>
-            </div>
-        </form>
-    
+
+                <div id="payment">
+                    <p class="section-subtitle">Payment Details</p>
+
+                    {% if messages %}
+                        <div>
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <div class="form-group col-sm-12 col-md-9 mx-auto">
+                        {{ payment_form | as_bootstrap }}
+
+                        <div id="credit-card-errors">
+                            <div class="alert-message block-message error" id="stripe-error-message"></div>
+                        </div>
+
+                    </div>
+                    
+                    {% csrf_token %}
+                    <div class="form-group col-sm-12 col-md-9 mx-auto">
+                    <input class=" btn btn-checkout" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+                    </div>
+                </div>
+            </form>
+        
+        </div>
+
     </div>
-</div>
-
 
 </div>
 {% endblock %}
