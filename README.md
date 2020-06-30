@@ -1,14 +1,18 @@
 [![Build Status](https://travis-ci.org/stiophan0309/horizon-sah.svg?branch=master)](https://travis-ci.org/stiophan0309/horizon-sah)
-# Horzon.        
+# Horizon       
 ### Artisan Landscape Art and Photography
 
-# Contents:
+# Table of Contents:
+
 #### User Experience
 #### Design
 #### Wireframes & Flowcharts
 #### Features
 #### Technologies Used
-
+#### Planning and Testing
+#### Deployment
+#### Credits
+#### Disclaimer
 
 # User Experience
 
@@ -193,35 +197,35 @@ Quantity | quantity | IntegerField
 
 Languages
 
-* HTML
-* CSS 
-* JavaScript
-* Python
+* [HTML](https://www.w3schools.com/default.asp)
+* [CSS](https://www.w3schools.com/css/default.asp)
+* [JavaScript](https://www.javascript.com)
+* [Python](https://www.python.org)
 
 Tools & Libraries
 
-* jQuery
-* Django
-* Git 
-* Bootstrap
-* Font-Awewsome
-* WhiteNoise
-* Gunicorn
-* PIP 
-* Psycopg2
-* Stripe
-* Toast
-* GitPod
-* Heroku
+* [jQuery](https://jquery.com)
+* [Django](https://www.djangoproject.com)
+* [Git](https://git-scm.com) 
+* [Bootstrap](https://getbootstrap.com)
+* [Font-Awewsome](https://fontawesome.com)
+* [WhiteNoise](http://whitenoise.evans.io/en/stable/index.html)
+* [Gunicorn](https://gunicorn.org)
+* [PIP](https://pypi.org/project/pip/)
+* [Psycopg2](https://pypi.org/project/psycopg2/)
+* [Stripe](https://stripe.com/gb?utm_campaign=paid_brand-UK_en_Search_Brand_Stripe-2032860449&utm_medium=cpc&utm_source=google&ad_content=355351450259&utm_term=stripe&utm_matchtype=e&utm_adposition=&utm_device=c&gclid=CjwKCAjwxev3BRBBEiwAiB_PWFoZ3zJ1-LdYlLMC4frNMfgcY6SOLhmaqFcT9U9IkWPFYML2_CT2ThoC-FsQAvD_BwE)
+* [Toast](https://kamranahmed.info/toast)
+* [GitPod](https://www.gitpod.io)
+* [Heroku](https://www.heroku.com)
 
 Databases
 
-* PostgresSQL - production
-* SQLite3 - development
+* [PostgresSQL - production](https://www.postgresql.org)
+* [SQLite3 - development](https://www.sqlite.org/index.html)
 
 # Planning & Testing
 
-#### Planning:
+### Planning:
 
 Planning is an essential stage in planning any project and Web Development is no exception, especially when using new technologies and tools.  The following details how Horizon was
 planned and developed.
@@ -229,93 +233,92 @@ planned and developed.
 I started by using wireframes which I constructed on Balsamiq and using Bootstrap I was quicky able to draft temnplates for the basic look of the site.  Thanks to this and the Django templating language 
 I was able to re-use code throughout the site.
 
-#### Feature Testing:
+### Feature Testing:
 
-#### Gallery / Shop
+### Gallery / Shop
 
-Planning: Having done a gallery type project before I was able to re-use and improve upon the methodology I used there, however I devided upon a simpler layout as I wanted to combine the gallery and
+**Planning:** Having done a gallery type project before I was able to re-use and improve upon the methodology I used there, however I devided upon a simpler layout as I wanted to combine the gallery and
 the shop into one, so decided upon displaying each image with minimal info then utilising Bootstrap Modals for a detailed view with option to buy.
 
-Implementation: Once I had setup the product model and migrate the table into the database, I could then create the view within the Works app that sends a GET request to the database and returns all the works via the works variable, making this available to the front end via the context in the return statement meant that I could loop through each work from the database and render the details using Django's template language in the HTML including the Modal enabling me to re-use the modal code.
+**Implementation:** Once I had setup the product model and migrate the table into the database, I could then create the view within the Works app that sends a GET request to the database and returns all the works via the works variable, making this available to the front end via the context in the return statement meant that I could loop through each work from the database and render the details using Django's template language in the HTML including the Modal enabling me to re-use the modal code.
 
-Testing: To test that this app worked, I navigated to the 'works.html' page using the link on the Navbar and looked to see if all the works in the database had been rendered into the HTML template, and tested clicking on each image to open the modal to make sure it displayed the correct info for each work.  I also resized the browser and used Google's tools so emulate different devices to test the resposiveness of the layout.
+**Testing:** To test that this app worked, I navigated to the 'works.html' page using the link on the Navbar and looked to see if all the works in the database had been rendered into the HTML template, and tested clicking on each image to open the modal to make sure it displayed the correct info for each work.  I also resized the browser and used Google's tools so emulate different devices to test the resposiveness of the layout.
 
-Outcome: The works displayed correctly, all the modals worked and correctly displayed the relevant info and the page was responsive.
+**Outcome: The works displayed correctly, all the modals worked and correctly displayed the relevant info and the page was responsive.**
 
-Verdict:  The Works app passed testing based on the above criteria.
+**Verdict:  The Works app passed testing based on the above criteria.**
 
-#### Cart
+### Cart
 
-Planning:  Here I used the material from the eCommerce mini-project as the main basis for the Cart app bit and added my own styling.
+**Planning:**  Here I used the material from the eCommerce mini-project as the main basis for the Cart app bit and added my own styling.
 
-Implementation:  I made a context.py file first and included it in the Context processors in settings.py to tell the app what info should need as the Cart is stored in session,
+**Implementation:**  I made a context.py file first and included it in the Context processors in settings.py to tell the app what info should need as the Cart is stored in session,
 not in the database.  I then wrote the view for adding, editing and deleting from the Cart.
 
-Testing: To test the app, I navigated the to the gallery and selected a work and from the modal, selected 'add to cart'.  I then went to the cart app and tested amending the quantity and removing it from the cart.
+**Testing:** To test the app, I navigated the to the gallery and selected a work and from the modal, selected 'add to cart'.  I then went to the cart app and tested amending the quantity and removing it from the cart.
 
-Outcome: The work added correctly to the cart and the icon in the Navbar correctly updated.  The app correctly also amended and removed items from the cart.
+**Outcome: The work added correctly to the cart and the icon in the Navbar correctly updated.  The app correctly also amended and removed items from the cart.**
 
-Verdict: The Cart app passed testing based on the above criteria.
+**Verdict: The Cart app passed testing based on the above criteria.**
 
-#### Checkout
+### Checkout
 
-Planning: Again I used the material from the eCommerce mini-project as a basis for the Checkout app as I felt it would based on tried ans tested knowledge which should work according to users' expectations.
+**Planning:** Again I used the material from the eCommerce mini-project as a basis for the Checkout app as I felt it would based on tried ans tested knowledge which should work according to users' expectations.
 
-Implementation:  I first construted the models (Order and OrderLineItem) and migrated them to the database.  Then I created the forms and view and setup the validation required by STRIPE in the stripe.js file to handle the creation of the stripe_id, which is required in order to process a payment with the API.
+**Implementation:**  I first construted the models (Order and OrderLineItem) and migrated them to the database.  Then I created the forms and view and setup the validation required by STRIPE in the stripe.js file to handle the creation of the stripe_id, which is required in order to process a payment with the API.
 
-Testing: I added a selection of products to the cart and navigated to the checkout.html page, I then entered dummy contact information and used stripe test card details to attempt to create a purchase, I also tested this feature with incorrect payment information in order to check that the error messages were visible.  I also checked the Stripe website to see if the payment was processed.
+**Testing:** I added a selection of products to the cart and navigated to the checkout.html page, I then entered dummy contact information and used stripe test card details to attempt to create a purchase, I also tested this feature with incorrect payment information in order to check that the error messages were visible.  I also checked the Stripe website to see if the payment was processed.
 
-Outcome: Payment was processed successfully and showed on the Stripe website and error messages appeared visiblbly and correctly when using invalid credentials.
+**Outcome: Payment was processed successfully and showed on the Stripe website and error messages appeared visiblbly and correctly when using invalid credentials.**
 
-Verdict: The Checkout app passed testing based on the above criteria.
+**Verdict: The Checkout app passed testing based on the above criteria.**
 
-#### Profile & Orders
+### Profile & Orders
 
-Planning: I wanted to develop the Profile page covered in the eCommerce mini-project as one of my 2 additional apps for the project.
+**Planning:** I wanted to develop the Profile page covered in the eCommerce mini-project as one of my 2 additional apps for the project.
 
-Implementation:  I decided toi keep the Profile page simple only disoplaying personal info and a lkink to a seperate Orders page.  In the Orders page I had to interact with the Order and OrderLineItem model in the Checkout app looping through each order in the database and retrieving the orders that match the current logged in users id, then within the template looping over each order.item to render the order in the page. In terms of editing the user details, I had to create a form that would update the user details in the User table based on the information inputted.  In also implemented a delete function so users can delete their profile if they wish.
+**Implementation:**  I decided toi keep the Profile page simple only disoplaying personal info and a lkink to a seperate Orders page.  In the Orders page I had to interact with the Order and OrderLineItem model in the Checkout app looping through each order in the database and retrieving the orders that match the current logged in users id, then within the template looping over each order.item to render the order in the page. In terms of editing the user details, I had to create a form that would update the user details in the User table based on the information inputted.  In also implemented a delete function so users can delete their profile if they wish.
 
-Outcome: The Profile page correctly displays the correct user information but the Order opage displays all orders placed for all users.
+**Outcome: The Profile page correctly displays the correct user information but the Order opage displays all orders placed for all users.**
 
-Verdict:  Profile Page - passed, Orders page - failed as all orders visible.
+**Verdict:  Profile Page - passed, Orders page - failed as all orders visible.**
 
-#### Custom 
+### Custom 
 
-Planning: As well as selling existing works any artist will offer a service for commissions or custom works and I wanted Horizon to be no exception.  
+**Planning:** As well as selling existing works any artist will offer a service for commissions or custom works and I wanted Horizon to be no exception.  
 
-Implementation:  The object was to capture information based on the users requirements so I set up a model based on criteria required by the artist including an image upload function.  I then created the view and form and rendered the template. The feature functions like a Contact Form so the artist will contact the user to discuss final requirements and payment.
+**Implementation:**  The object was to capture information based on the users requirements so I set up a model based on criteria required by the artist including an image upload function.  I then created the view and form and rendered the template. The feature functions like a Contact Form so the artist will contact the user to discuss final requirements and payment.
 
-Testing:  Testing was by navigation to the custom.html which presents the user with an info page and option to request a Custom Work.  When selected the form was filled out to see if user is presented with a success or error message.
+**Testing:**  Testing was by navigation to the custom.html which presents the user with an info page and option to request a Custom Work.  When selected the form was filled out to see if user is presented with a success or error message.
 
-Outcome: The form successfully sent and was presented with a success popup then presented with an information page on the next steps in the process.
+**Outcome: The form successfully sent and was presented with a success popup then presented with an information page on the next steps in the process.**
 
-Verdict: The Custom app passed testing based on the above criteria
+**Verdict: The Custom app passed testing based on the above criteria**
 
-#### Search Bar
+### Search Bar
 
-Planning: I wanted the Search bar to ba available throughout the site so users can mnake a quick search if they have some idea of what they want to look for, I thought placing it
+**Planning:** I wanted the Search bar to ba available throughout the site so users can mnake a quick search if they have some idea of what they want to look for, I thought placing it
 on the Navbar was the best fit.
 
-Implementation:  I utilising both code from the e-commerce mini-project (backend) originally filtering by name but changed this to by title, and Bootstrap (frontend) to implement the Search bar.
+**Implementation:** I utilising both code from the e-commerce mini-project (backend) originally filtering by name but changed this to by title, and Bootstrap (frontend) to implement the Search bar.
 
-Testing:  I tested by searching for different key words in different works
+**Testing:**  I tested by searching for different key words in different works
 
-Outcome: The search displayed results based on the keywords I searched for.
+**Outcome: The search displayed results based on the keywords I searched for.**
 
-Verdict: The Search app passed testing based on the above criteria.
+**Verdict: The Search app passed testing based on the above criteria.**
 
-#### User Authentication
+### User Authentication
 
-Planning:  I wanted users to be able to login/logout of their account so this feature was very important as is commonplace on any e-commerce site. Using the django.auth settings this feature would be heavily supported by the existing functionality that comes already pre-packed with Django.
+**Planning:**  I wanted users to be able to login/logout of their account so this feature was very important as is commonplace on any e-commerce site. Using the django.auth settings this feature would be heavily supported by the existing functionality that comes already pre-packed with Django.
 
-Implementation: The user table exists in Django as standard, so all that was needed to do was construct the forms and views in order to allow the user to register an account, login to their account and logout of their account.
+**Implementation:** The user table exists in Django as standard, so all that was needed to do was construct the forms and views in order to allow the user to register an account, login to their account and logout of their account.
 
-Testing: In order to test the User features I had to perform each view step by step, First I Created a user account and checked that the records had been added to the database, Then I attempted a login to the website using those details, after that I logged out of the account using the logout view.
+**Testing:** In order to test the User features I had to perform each view step by step, First I Created a user account and checked that the records had been added to the database, Then I attempted a login to the website using those details, after that I logged out of the account using the logout view.
 
-Outcome: The 'ussr account I had created was visible in the database, and when I attempted to login to the account I was redirected to the profile page which displayed personal info. Finally logging out cleared my session and meant that I would have to log back into the user account to return to the profile page.
+**Outcome: The 'user account I had created was visible in the database, and when I attempted to login to the account I was redirected to the profile page which displayed personal info. Finally logging out cleared my session and meant that I would have to log back into the user account to return to the profile page.**
 
-Verdict: The Checkout app passed testing based on the above criteria.
-
+**Verdict: The Checkout app passed testing based on the above criteria.**
 
 
 # Deployment
