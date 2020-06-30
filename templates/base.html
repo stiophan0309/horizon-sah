@@ -25,7 +25,7 @@
         <li class="nav-item"><a class="nav-link" href="{% url 'custom' %}"><i class="fas fa-wrench"></i> Custom Artwork</a></li>
         <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}"><i class="fas fa-envelope"></i> Contact Us</a></li>
         <li class="nav-item"><a class="nav-link" href="{% url 'index' %}#about"><i class="fas fa-info"></i> About Horizon</a></li>
-        <li class="nav-item"><span class="nav-link"> | </span> </li>
+        <li class="nav-item divider"><span class="nav-link"> | </span> </li>
             {% if user.is_authenticated %}
             <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}"><i class="fas fa-user"></i> Profile</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
