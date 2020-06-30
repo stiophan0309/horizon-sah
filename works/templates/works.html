@@ -28,7 +28,7 @@
                 <a data-toggle="modal" data-target="#modal-work-{{work.pk}}">
                     <img class="thumb thumbX" src="{{ MEDIA_URL}}{{work.image}}" alt="{{ work.title }}">
                     <div class="image-overlay"></div>
-                    <p>{{ work.title }} <span class="price">£{{ work.price }}</span></p>
+                    <p>{{ work.title }} <span class="price"><i class="fas fa-pound-sign"></i>{{ work.price }}</span></p>
                 </a>
             </div>
             
@@ -50,7 +50,7 @@
                             <p>Media: {{ work.media }}</p>
                             <p>Date: {{ work.date }}</p>
                             <p class="work-description">{{ work.description }}</p>
-                            <p>Price: £{{ work.price }}</p>
+                            <p>Price: <i class="fas fa-pound-sign"></i>{{ work.price }}</p>
                         </div>
 
                         <div class="modal-footer">
