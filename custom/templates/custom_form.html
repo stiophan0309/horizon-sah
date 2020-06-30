@@ -9,22 +9,30 @@
         <div class="col-md-12">
             <h1 class="section-title">Horizon</h1>
             <h3 class="section-subtitle">Request a Commission / Custom Artwork</h3>
-            <p>Please use the form below so we can get an idea of what you require, once we receive your request we will be in touch with you to finalise the details and give you a quote. If you have an existing imnage that you would like to use for inspiration and/or a basis for your work, please use the Image upload button.  Please also read the site Terms & Conditions <a href="#">HERE</a>.</p>
+            <p>Please use the form below so we can get an idea of what you require, once we receive your request we will be in touch with you to finalise the details and give you a quote. If you have an existing imnage that you would like to use for inspiration and/or a basis for your work, please use the Image upload button.</p>
         </div>
-    
     </div>
-    <div class="form-group col-md-6 mx-auto">
-    {% if messages %}
-    <div>
-        {% for message in messages %}
-            <script>alert("{{ message }}")</script>
-        {% endfor %}
+
+    <div class="row">
+        <div class="col-sm-10 col-md-8 main">
+
+            <div class="form-group col-md-6 mx-auto">
+            {% if messages %}
+            <div>
+                {% for message in messages %}
+                    <script>alert("{{ message }}")</script>
+                {% endfor %}
+            </div>
+            {% endif %}
+                <form method="POST" class="mx-auto" enctype="multipart/form-data">
+                {% csrf_token %}
+                    {{ form | as_bootstrap }}
+                    <button type="submit" class="btn btn-checkout">Send Request</button>
+                </form>
+            </div>
+        </div>
     </div>
-    {% endif %}
-    <form method="POST" class="mx-auto" enctype="multipart/form-data">
-    {% csrf_token %}
-        {{ form | as_bootstrap }}
-        <button type="submit" class="btn btn-info">Save</button>
-    </form>
+
+
 </div>
 {% endblock %}

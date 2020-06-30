@@ -33,6 +33,14 @@ body {
     background:  #00a896;
     padding: 20px;
 }
+.link {
+    text-decoration: none;
+    color: #000;
+}
+.link:hover {
+    text-decoration: none;
+    color: #f0f3bd;
+}
 /* Navbar styles */
 nav {
     margin-bottom: 70px;
@@ -139,14 +147,6 @@ nav {
 }
 
 
-/* Cart App Styles */
-.card {
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 100px;
-}
-
-
 /* Image thumbnails */
 .image-wrapper {
   display: inline-block;
@@ -224,16 +224,10 @@ nav {
     color: #f0f3bd;
 }
 
-
-
-
-
 .user {
     margin: auto;
 }
-.admin {
-    text-align: center;
-}
+
 .panel {
     width: 80%;
     margin: 20px auto;
@@ -262,6 +256,11 @@ nav {
     background: #05668d;
     padding: 20px;
     margin: 10px;
+    text-align: center;
+    color: #fff;
+}
+.admin p {
+    color: #f0f3bd;
 }
 .admin-left {
     text-align: left;
@@ -273,7 +272,12 @@ nav {
     text-align: center;
 }
 
-
+/* Cart App Styles */
+.card {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 100px;
+}
 .card-header, .card-footer {
     background: #05668d;
     color: #f0f3bd;
@@ -347,5 +351,11 @@ nav {
     border: 1px solid #f0f3bd;
     padding: 20px;
     width: 95%;
+}
+.request {
+    margin: 30px;
+    text-align: left;
+    padding: 20px;
+    color: #000;
 }
 
