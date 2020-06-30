@@ -277,11 +277,11 @@ not in the database.  I then wrote the view for adding, editing and deleting fro
 
 **Planning:** I wanted to develop the Profile page covered in the eCommerce mini-project as one of my 2 additional apps for the project.
 
-**Implementation:**  I decided toi keep the Profile page simple only disoplaying personal info and a lkink to a seperate Orders page.  In the Orders page I had to interact with the Order and OrderLineItem model in the Checkout app looping through each order in the database and retrieving the orders that match the current logged in users id, then within the template looping over each order.item to render the order in the page. In terms of editing the user details, I had to create a form that would update the user details in the User table based on the information inputted.  In also implemented a delete function so users can delete their profile if they wish.
+**Implementation:**  I decided to keep the Profile page simple only disoplaying personal info.  In terms of editing the user details, I had to create a form that would update the user details in the User table based on the information inputted.  In also implemented a delete function so users can delete their profile if they wish.
 
 **Outcome: The Profile page correctly displays the correct user information but the Order opage displays all orders placed for all users.**
 
-**Verdict:  Profile Page - passed, Orders page - failed as all orders visible.**
+**Verdict:  The Profile app passed testing based on the above criteria.**
 
 ### Custom 
 
