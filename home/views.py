@@ -5,7 +5,7 @@ from .forms import ContactForm
 
 # Create your views here.
 def index(request):
-    """A view that displays the index page"""
+    """A view that displays the index and about pages"""
     return render(request, 'index.html')
 
 

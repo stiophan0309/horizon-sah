@@ -46,17 +46,10 @@ def login(request):
 def profile(request):
     """A view that displays the profile page of a logged in user"""
     try:
-        # retrieves the current user
         user_id = request.user.pk
-        # retrieves the Profile object associated with current user
         currentprofile = Profile.objects.get(user=user_id)
-        # renders profile.html with the Profile info of the current user
         return render(request, 'profile.html', {'profile': currentprofile})
     except Profile.DoesNotExist:
-        # renders profile.html without Profile information,
-        # typically because user has not yet filled in
-        # their profile information
-
         return render(request, 'profile.html')
 
 
@@ -89,14 +82,11 @@ def edit_profile(request):
     """
     View to handle the form for a user to enter/edit their profile details
     """
-    # retrieves the current user
     user_id = request.user.pk
     if request.method == 'POST':
         baseform = UserUpdateForm(request.POST, user=request.user)
         profile_form = ProfileForm(request.POST)
         if baseform.is_valid() and profile_form.is_valid():
-            # save the new email and/or password
-            # but only if the user tried to change it!
             data = baseform.cleaned_data
             if baseform.fields["email"].has_changed(request.user.email,
                                                     data["email"]):
@@ -111,16 +101,12 @@ def edit_profile(request):
                 request.user.set_password(data["new_password1"])
                 request.user.save()
                 update_session_auth_hash(request, request.user)
-            # save the profile details and redirects to profile.html
             details = profile_form.save(commit=False)
             details.user = request.user
             try:
                 details.save()
                 return redirect(profile)
             except IntegrityError:
-                # updates the user's Profile info
-                # and redirects them back their profile page
-                # where they can now view the info they've uploaded.
                 details.pk = Profile.objects.get(user=user_id).pk
                 details.save()
                 messages.success(request,
@@ -129,7 +115,6 @@ def edit_profile(request):
         else:
             messages.error(request, "Please correct the highlighted errors:")
     else:
-        # display the user's current details, if they exist
         try:
             user_profile = Profile.objects.get(user=user_id)
             profile_form = ProfileForm(instance=user_profile)
@@ -147,11 +132,9 @@ def delete_profile(request):
     This view renders the deleteprofile page
     where the user must confirm that they wish to delete their user/profile
     """
-    # requests the current user
     user = request.user
     if request.method == "POST":
         user.delete()
-        # redirects back to the home page
         return redirect(reverse('index'))
     context = {
         "object": user

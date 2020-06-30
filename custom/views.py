@@ -4,10 +4,14 @@ from django.contrib import messages
 from .models import Custom
 from .forms import CustomForm
 
+
+"""Render the Custom landing page"""
 @login_required()
 def create_custom(request):
     return render(request, "custom.html")
 
+
+"""Render the Custom Form and validate and send the info"""
 @login_required()
 def custom_form(request):
     if request.method == "POST":
@@ -20,6 +24,7 @@ def custom_form(request):
         form = CustomForm()
 
     return render(request, "custom_form.html", {'form': form})
+
 
 @login_required()
 def request_confirmation(request):

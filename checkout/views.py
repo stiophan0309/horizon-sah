@@ -12,15 +12,13 @@ from accounts.forms import ProfileForm
 import stripe
 
 
-# Create your views here.
 stripe.api_key = settings.STRIPE_SECRET
+
 
 @login_required()
 def checkout(request):
     user_id = request.user.pk
-    # retrieves the Profile info of the current user
     if Profile.objects.filter(user=user_id).exists():
-        # turns Profile info to a single variable
         currentprofile = Profile.objects.get(user=user_id)
         form = ProfileForm(initial={'full_name': currentprofile.full_name,
                                     'phone_number':
