@@ -10,11 +10,6 @@ from django.template.context_processors import csrf
 from django.db import IntegrityError
 from .models import Profile
 from checkout.models import Order, OrderLineItem
-from custom.models import Custom
-
-
-
-# Create your views here.
 
 
 @login_required
@@ -45,34 +40,6 @@ def login(request):
     else:
         login_form = UserLoginForm()
     return render(request, 'login.html', {'login_form': login_form})
-
-# def registration(request):
-#     """Render the registration page"""
-#     if request.user.is_authenticated:
-#         return redirect(reverse('index'))
-
-#     if request.method == "POST":
-#         registration_form = UserRegistrationForm(request.POST)
-
-#         if registration_form.is_valid():
-#             registration_form.save()
-
-#             user = auth.authenticate(username=request.POST['username'],
-#                                      password=request.POST['password1'])
-#             if user:
-#                 auth.login(user=user, request=request)
-#                 messages.success(request, "You have successfully registered")
-#             else:
-#                 messages.error(request, "Unable to register your account at this time")
-#     else:
-#         registration_form = UserRegistrationForm()
-#     return render(request, 'registration.html', {
-#         "registration_form": registration_form})
-
-# def profile(request):
-#     """The user's profile page"""
-#     user = User.objects.get(email=request.user.email)
-#     return render(request, 'profile.html', {"profile": user})
 
 
 @login_required
@@ -190,17 +157,3 @@ def delete_profile(request):
         "object": user
     }
     return render(request, "deleteprofile.html", context)
-
-
-@login_required()
-def orders(request):
-    """A view that displays the orders page"""
-    orders = Order.objects.all().order_by('-date')
-    order_line_items = OrderLineItem.objects.all().order_by('-order_id')
-    return render(request, "orders.html",
-                  {'orders': orders, 'order_line_items': order_line_items})
-
-def custom_orders(request):
-    all_objects = Custom.objects.all()
-    context = {'all_objects': all_objects}
-    return render(request, 'orders.html', context)
