@@ -9,29 +9,29 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/fontawesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css">
     <title>Horizon - Artisan Landscape Art & Photography - {% block page_title %}Home Page{% endblock %}</title>
 </head>
 <body>
 <nav class="navbar fixed-top navbar-expand-lg navbar-light nav-bg">
-    <a class="nav-link navbar-brand home" href="{% url 'index' %}">Horizon</a>
+    <a class="nav-link navbar-brand home" href="{% url 'index' %}"><i class="fas fa-home"></i> Horizon</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><a class="nav-link" href="{% url 'works' %}">Gallery & Shop</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'custom' %}">Custom Artwork</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'index' %}#about">About Horizon</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'works' %}"><i class="fas fa-camera" aria-hidden="true"></i> Gallery & Shop</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'custom' %}"><i class="fas fa-wrench"></i> Custom Artwork</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}"><i class="fas fa-envelope"></i> Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'index' %}#about"><i class="fas fa-info"></i> About Horizon</a></li>
         <li class="nav-item"><span class="nav-link"> | </span> </li>
             {% if user.is_authenticated %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}"><i class="fas fa-user"></i> Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             {% else %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'register' %}"><i class="fas fa-edit"></i> Register</a></li>
             {% endif %}
         </ul>
         <ul class="navbar-nav ml-auto nav-right">
